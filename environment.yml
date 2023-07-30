@@ -1,0 +1,22 @@
+name: un-og-training-dev
+channels:
+- conda-forge
+dependencies:
+- python>=3.10
+- numpy
+- scipy
+- pandas
+- ipython
+- matplotlib
+- bokeh
+- sphinx
+- sphinx-argparse
+- sphinx-math-dollar
+- pydata-sphinx-theme
+- dask>=2.30.0
+- dask-core>=2.30.0
+- distributed>=2.30.1
+- jupyter-book
+- jupyter
+- black
+- setuptools
