@@ -20,6 +20,9 @@ dependencies:
 - jupyter
 - black
 - setuptools
+- coverage
 - pip
 - pip:
   - ogcore
+  - linecheck
+  - yaml-changelog
