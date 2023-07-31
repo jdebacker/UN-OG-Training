@@ -4,7 +4,7 @@ format:
 install:
 	pip install -e .
 test:
-	pytest -m 'not local' --cov=./ --cov-report=xml
+	pytest -m 'not local'
 documentation:
 	jupyter-book clean docs/book
 	jupyter-book build docs/book
