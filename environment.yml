@@ -13,9 +13,6 @@ dependencies:
 - sphinx-argparse
 - sphinx-math-dollar
 - pydata-sphinx-theme
-- dask>=2.30.0
-- dask-core>=2.30.0
-- distributed>=2.30.1
 - jupyter-book
 - jupyter
 - black
