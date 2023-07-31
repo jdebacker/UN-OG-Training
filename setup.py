@@ -40,6 +40,7 @@ setup(
         "jupyter",
         "black",
         "setuptools",
+        "pytest",
         "coverage",
         "ogcore",
         "linecheck",
