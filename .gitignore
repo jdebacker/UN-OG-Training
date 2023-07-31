@@ -33,3 +33,6 @@ dist/*
 *.pytest*
 Icon?
 .ipynb_checkpoints/*
+
+# Built Jupyter-book documentation
+docs/book/_build

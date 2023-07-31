@@ -1,0 +1,26 @@
+name: un-og-training-dev
+channels:
+- conda-forge
+dependencies:
+- python>=3.10
+- numpy
+- scipy
+- pandas
+- ipython
+- matplotlib
+- bokeh
+- sphinx
+- sphinx-argparse
+- sphinx-math-dollar
+- pydata-sphinx-theme
+- jupyter-book
+- jupyter
+- black
+- setuptools
+- pytest
+- coverage
+- pip
+- pip:
+  - ogcore
+  - linecheck
+  - yaml-changelog

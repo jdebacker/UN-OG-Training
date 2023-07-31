@@ -1,0 +1,18 @@
+format: jb-book
+root: index
+parts:
+  - caption: Coding in Python
+    chapters:
+    - file: python/intro
+  - caption: Git and GitHub
+    chapters:
+    - file: git/intro
+  - caption: OG Macro Model
+    chapters:
+    - file: OG/intro
+  - caption: Appendix
+    chapters:
+    - file: appendix/intro
+  - caption: References
+    chapters:
+    - file: UN-OG-Training_references
