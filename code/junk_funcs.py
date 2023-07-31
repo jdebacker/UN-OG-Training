@@ -4,6 +4,7 @@ This module contains a junk placeholder function for testing purposes.
 ------------------------------------------------------------------------
 """
 
+
 def junk_func_add(arg1, arg2):
     """
     This is just a junk function in this junk module in the `/code/`

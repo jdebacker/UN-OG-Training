@@ -1,15 +1,14 @@
 import sys
-sys.path.append('/Users/richardevans/Docs/Economics/OSE/UN-OG-Training/code/')
+
+sys.path.append("/Users/richardevans/Docs/Economics/OSE/UN-OG-Training/code/")
 
 import pytest
 from junk_funcs import junk_func_add
 
+
 @pytest.mark.parametrize(
     "arg1, arg2, expected",
-    [
-        (2, 3, 5),
-        (10, 17, 27)
-    ],
+    [(2, 3, 5), (10, 17, 27)],
     ids=[
         "2 plus 3 equals 5",
         "10 plus 17 equals 27",
