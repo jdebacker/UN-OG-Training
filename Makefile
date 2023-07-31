@@ -6,8 +6,8 @@ install:
 test:
 	pytest tests/ --maxfail=0
 documentation:
-    jupyter-book clean docs/book
-    jupyter-book build docs/book
+	jupyter-book clean docs/book
+	jupyter-book build docs/book
 changelog:
 	build-changelog changelog.yaml --output changelog.yaml --update-last-date --start-from 0.0.0 --append-file changelog_entry.yaml
 	build-changelog changelog.yaml --org OpenRG --repo UN-OG-Training --output CHANGELOG.md --template .github/changelog_template.md
