@@ -4,6 +4,14 @@ parts:
   - caption: Coding in Python
     chapters:
     - file: python/intro
+    - file: python/StandardLibrary
+    - file: python/OOP
+    - file: python/NumPy
+    - file: python/Pandas
+    - file: python/Matplotlib
+    - file: python/SciPy
+    - file: python/DocStrings
+    - file: python/UnitTesting
   - caption: Git and GitHub
     chapters:
     - file: git/intro
