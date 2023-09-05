@@ -37,7 +37,8 @@ To include:
 * How country calibrations interact
 * Installing OG-Core
 * Running the model
-* Changing parameters and running the model (exercises here, just with SS)
+  * Excerise to run
+* Changing parameters and running the model (exercises here where change various parameters, just with SS)
 * Interpreting output
   * Exercises to use plot and table functions
 * Detailing model parameters that would calibrate with country model
