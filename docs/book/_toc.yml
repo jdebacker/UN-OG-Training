@@ -18,6 +18,8 @@ parts:
   - caption: OG Macro Model
     chapters:
     - file: OG/intro
+    - files: OG/OGinstall
+    - files: OG/OGsimulation
     - file: OG/OGoutput
   - caption: Appendix
     chapters:
