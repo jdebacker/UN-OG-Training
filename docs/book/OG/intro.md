@@ -3,7 +3,7 @@
 
 The model we are training you to use is called `OG-Core`. "OG" refers to the model being an overlapping generations model. "Core" refers to the fact that the model is a core model, meaning that it is a foundational model that can then be parameterized to represent a specific economy.
 
-The phrase "overlapping generations" refers to a key feature of this class of model, which is that there are multiple generations of economic agents (individuals or households) whose lives overlap. That is, at any point in time, there are several generations of agents living and making economic decisions.  Thus, if one would like to do any analysis of intergenerational transfers (e.g., through a public pension system or through environmental policies that impose costs today to have benefits in the future), then one needs to use an overlapping generations model. [Perhaps this is a good place to link to some seminal papers on OG models.]
+The phrase "overlapping generations" refers to a key feature of this class of model, which is that there are multiple generations of economic agents (individuals or households) whose lives overlap. That is, at any point in time, there are several generations of agents living and making economic decisions.  Thus, if one would like to do any analysis of intergenerational transfers (e.g., through a public pension system or through environmental policies that impose costs today to have benefits in the future), then one needs to use an overlapping generations model.[^citation_note]
 
 To further describe `OG-Core`, it is a dynamic, general equilibrium, overlapping generations model.  The adjective "dynamic" refers to the model accounting for the dimension of time. Agents are forward looking and consider tradeoffs between today and the future. The adjective "general equilibrium" refers to the model accounting for the fact that all markets are in equilibrium.  That is, the model is a system of equations that are solved simultaneously.  By imposing an equilibrium on the model, we are ensuring consistency in the choices economic agents make and aggregate outcomes.
 
@@ -43,15 +43,13 @@ The market clearing conditions ensure that in each period, the supply of labor f
 
 # Country Calibrations of OG-Core
 
+As described above, `OG-Core` is a foundational and general model.  It has all the pieces, but it doesn't represent any specific economy.  To represent a specific economy, one must calibrate the model to that economy.  This involves setting the values of the parameters of the model to so that the model output matches that of the economy you wish to model.  `OG-Core` has thousands of parameters, so this can be a significant task.  Some current country-specific calibrations (with varying degrees of detail) have been done for the [United States](https://github.com/PSLmodels/OG-USA), the [United Kingdom](https://github.com/PSLmodels/OG-UK), [South Africa](https://github.com/EAPD-DRB/OG-ZAF), [India](https://github.com/Revenue-Academy/OG-IND), and [Malaysia](https://github.com/Revenue-Academy/OG-MYS).
+
+Each of these country calibrations can be used a examples when creating a calibration of a country of interest to you.  In chapters that follow, we'll provide some more details on how part of this calibration are done and give you example exercises related to the calibration process to hel you better understand it.
+
+What comes out of these calibration packages is a `Calibration` class object that contains new parameter values and that can be used to update teh `Specifications` class object that is passed to the `OG-Core` model and that represents the parameterization of the model.
 
 
-* How country calibrations interact
-* Installing OG-Core
-* Running the model
-  * Excerise to run
-* Changing parameters and running the model (exercises here where change various parameters, just with SS)
-* Interpreting output
-  * Exercises to use plot and table functions
 * Detailing model parameters that would calibrate with country model
   * Macro params -> exercise using pandas datareader to get data from FRED
   * Demographics -> exercise to get UN data for specific country
@@ -61,4 +59,4 @@ The market clearing conditions ensure that in each period, the supply of labor f
 (SecOGintroFootnotes)=
 ## Footnotes
 
-<!-- [^citation_note]: See {cite}`AuerbachEtAl:1981,AuerbachEtAl:1983`, {cite}`AuerbachKotlikoff:1983a,AuerbachKotlikoff:1983b,AuerbachKotlikoff:1983c`, and {cite}`AuerbachKotlikoff:1985`. -->
+[^citation_note]: For examples of OG modesl used for policy analysis, see {cite}`AuerbachEtAl:1981,AuerbachEtAl:1983`, {cite}`AuerbachKotlikoff:1983a,AuerbachKotlikoff:1983b,AuerbachKotlikoff:1983c`, and {cite}`AuerbachKotlikoff:1985`.
