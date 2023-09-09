@@ -47,7 +47,7 @@ As described above, `OG-Core` is a foundational and general model.  It has all t
 
 Each of these country calibrations can be used a examples when creating a calibration of a country of interest to you.  In chapters that follow, we'll provide some more details on how part of this calibration are done and give you example exercises related to the calibration process to hel you better understand it.
 
-What comes out of these calibration packages is a `Calibration` class object that contains new parameter values and that can be used to update teh `Specifications` class object that is passed to the `OG-Core` model and that represents the parameterization of the model.
+What comes out of these calibration packages is a `Calibration` class object that contains new parameter values and that can be used to update teh `Specifications` class object that is passed to the `OG-Core` model and that represents the parameterization of the model.  We will describe this process in more detail in the chapters that follow.
 
 
 * Detailing model parameters that would calibrate with country model
