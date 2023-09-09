@@ -50,12 +50,6 @@ Each of these country calibrations can be used a examples when creating a calibr
 What comes out of these calibration packages is a `Calibration` class object that contains new parameter values and that can be used to update teh `Specifications` class object that is passed to the `OG-Core` model and that represents the parameterization of the model.  We will describe this process in more detail in the chapters that follow.
 
 
-* Detailing model parameters that would calibrate with country model
-  * Macro params -> exercise using pandas datareader to get data from FRED
-  * Demographics -> exercise to get UN data for specific country
-  * Earnings processes -> exercise to do approximation method of Marcelo
-
-
 (SecOGintroFootnotes)=
 ## Footnotes
 

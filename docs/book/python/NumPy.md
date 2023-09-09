@@ -8,7 +8,9 @@ ACME materials link...
 
 # Exercises
 
-1. Create a Numpy array `A`:
+TODO: update excerises to be more relevant to OG-Core. e.g., matrix represents savings.  Then we do some array operations to multiple savings by the "population distribution" matrix omega.  Then sum to get total savings, accounting for population weights.
+
+1. Create a Numpy array `b` (defined this as the savings of 2 types of agents over 5 periods):
    $$ \[
 M=
   \begin{bmatrix}
