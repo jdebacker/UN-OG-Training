@@ -1,9 +1,20 @@
-import sys
+# import sys
 
-sys.path.append("/Users/richardevans/Docs/Economics/OSE/UN-OG-Training/code/")
+# sys.path.append("/Users/richardevans/Docs/Economics/OSE/UN-OG-Training/code/")
 
 import pytest
-from junk_funcs import junk_func_add
+# from junk_funcs import junk_func_add
+
+
+def junk_func_add(arg1, arg2):
+    """
+    This is just a junk function that duplicates the `junk_funcs.py` module in
+    the `/code/` directory. We can delete this as soon as we have some real
+    functions.
+    """
+    junk_sum = arg1 + arg2
+
+    return junk_sum
 
 
 @pytest.mark.parametrize(
