@@ -1,5 +1,5 @@
 
-name: Check Black formatting
+name: Check code formatting
 
 on: [push, pull_request]
 
