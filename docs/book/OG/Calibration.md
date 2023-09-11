@@ -13,20 +13,20 @@ A key feature of OG models is the ability to model the impacts of economic shock
 
 
 HOW TO MAKE ONE FIGURE WITH 3 PANELS?
-:::{figure-md} markdown-fig
-<img src="../images/ZAF_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
+:::{figure-md} zaf_pop_fig
+<img src="./images/ZAF_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
 
 South Africa
 :::
 
-:::{figure-md} markdown-fig
-<img src="../images/IND_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
+:::{figure-md} ind_pop_fig
+<img src="./images/IND_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
 
 India
 :::
 
-:::{figure-md} markdown-fig
-<img src="../images/USA_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
+:::{figure-md} usa_pop_fig
+<img src="./images/USA_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
 
 United States
 :::
