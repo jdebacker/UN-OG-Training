@@ -9,7 +9,35 @@ In this chapter, we describe the process of creating a country-specific calibrat
 
 # Demographics
 
-A key feature of OG models is the ability to model effects across generations. In this way, OG models can be made to reflect realisti demographics and capture demographic trends.  Demographics are of massive importance to economic trends [add CITATIONS here].
+A key feature of OG models is the ability to model the impacts of economic shocks or policy changes across generations. Because they capture generations of finitely-lived agents, OG models can be made to reflect realistic demographics.  Demographic trends are of massive importance to economic trends [add CITATIONS here]. And there is a tremendous amount of variation in these trend across countries.  Consider Figure \ref{fig:pop_growth}, which shows the population distributions, and their evolution over time, for three countries: South Africa, India, and the United States. In each figure, we plot the 2023 population distribution (according to data from the [UN World Population Prospects](https://population.un.org/wpp/)) and then the evolution of the population as we age it forward two, 40, and 80 years and then to it's steady state distribution using the `demographics.py` model from the relevant country calibration (i.e., `OG-ZAF`, `OG-IND`, `OG-USA`). Comparing the 2023 distributions first, we see that South African distribution has humps, which reflect the initial wave of the HIV epsidemic and then it's echo on the next generation.  India also has more young adults than most other countries, but show a relatively flat gradient as the number of individuals decline quickly with age, reflecting relatively high mortality rates in that country.  The United States has a more right skewed distribution than South Africa and India, with more individuals of high age, reflecting relatively low mortality rates for adults. As each population is simulated forward in time, we see the age distribution move to the right, with more older individuals.  After just about 40 years, these populations are very close to their steady-state. Since older individuals make significantly different labor supply and savings decisions than young individuals, these evolutions of the population will have profound effects on wages, interest rates, and thus the macroeconomy.
+
+
+HOW TO MAKE ONE FIGURE WITH 3 PANELS?
+:::{figure-md} markdown-fig
+<img src="../images/ZAF_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
+
+South Africa
+:::
+
+:::{figure-md} markdown-fig
+<img src="../images/IND_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
+
+India
+:::
+
+:::{figure-md} markdown-fig
+<img src="../images/USA_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
+
+United States
+:::
+
+Figure \ref{} plots population growth rates over time for the three countries illustrated above.  The growth rates are determined by the same mortality and fertility trends that drive the evolution of the population in Figure \ref{}. DESCRIBE the trends here
+
+<!-- :::{figure-md} markdown-fig
+<img src="../images/pop_growth_rates.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
+
+Population Growth Rates in South Africa, India, and the United States
+::: -->
 
 ## Exercises
 1. Make a copy of `demographics.py` and modify to get UN data for specific country.
