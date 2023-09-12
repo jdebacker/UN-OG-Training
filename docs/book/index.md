@@ -8,7 +8,7 @@ This site contains open access tutorial materials and exercises for learning, us
 We welcome collaboration on the maintenance and improvement of this tutorial. If you have changes you would like to see or errors that you find, please open [an issue](https://github.com/OpenRG/UN-OG-Training/issues) in the GitHub repository or submit a [pull request](https://github.com/OpenRG/UN-OG-Training/pulls).
 
 
-## Jupyter Book site functionality
+## Tutorial site functionality
 This site was created using the [Executable Books](https://executablebooks.org/) [Jupyter Book](https://jupyterbook.org/) platform. All of the content for this tutorial material is publicly accessible, available, and version controlled in the GitHub repository (https://github.com/OpenRG/UN-OG-Training) associated with this book. Some of the functionality of this tutorial site includes the following:
 * **Navigate** through the chapters and sections of the tutorial materials using the chapter table of contents on the left side of the site, and navigate through subsections of each chapter using the subsection table of contents on the right side of each page.
 * Click on the GitHub icon <img src="./images/icon_github.png" width="20px"> in the upper-right of each page to go to the **GitHub repository** or open and issue in the repository.
