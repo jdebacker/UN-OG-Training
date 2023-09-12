@@ -16,3 +16,7 @@ This site was created using the [Executable Books](https://executablebooks.org/)
 * Toggle between a desktop window or **full-screen mode** by clicking on the full screen icon <img src="./images/icon_fullscreen.png" width="20px"> in the upper-right of each page.
 * Change the **background** from light to dark to automatic using the background brightness icon <img src="./images/icon_background.png" width="20px"> in the upper-right of each page.
 * **Search** for terms in the training materials using by clicking on the search icon <img src="./images/icon_search.png" width="20px"> in the upper-fight of each page and entering your search terms.
+
+
+## Associated repository components
+Put here a description of the code and tests available in the repository.
