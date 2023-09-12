@@ -1,4 +1,4 @@
-# UN OG-Core Overlapping Generations Model Training
+# United Nations OG-Core Overlapping Generations Model Training
 
 This site contains open access tutorial materials and exercises for learning, using, and maintaining open source macroeconomic model country calibrations of the open source `OG-Core` large scale overlapping generations macroeconomic modeling platform for fiscal analysis. This tutorial was created by a partnership between the United Nations Department of Economic and Social Affairs (DESA) and Open Research Group, Inc. The core maintainers of this project are the following:
 * **Marcelo LaFleur**, Senior Economist, Department of Economic and Social Affairs, United Nations (GitHub handle: [@SeaCelo](https://github.com/SeaCelo))
