@@ -1,7 +1,7 @@
 (Chap_DocStrings)=
 
 
-# Docstrings nad Documentation in Python
+# Docstrings and Documentation
 
 Quote about yourself 6 months from now trying to climb back into code...
 
