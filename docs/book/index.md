@@ -1,9 +1,9 @@
 # UN OG-Core Overlapping Generations Model Training
 
 This site contains open access tutorial materials and exercises for learning, using, and maintaining open source macroeconomic model country calibrations of the open source `OG-Core` large scale overlapping generations macroeconomic modeling platform for fiscal analysis. This tutorial was created by a partnership between the United Nations Department of Economic and Social Affairs (DESA) and Open Research Group, Inc. The core maintainers of this project are the following:
-* Marcelo LaFleur, Senior Economist, Department of Economic and Social Affairs, United Nations (GitHub handle: [@SeaCelo](https://github.com/SeaCelo))
-* [Jason DeBacker](https://jasondebacker.com/), Associate Professor, Department of Economics, University of South Carolina; Vice President and Co-founder, Open Research Group, Inc. (GitHub handle: [@jdebacker](https://github.com/jdebacker))
-* [Richard W. Evans](https://sites.google.com/site/rickecon), Senior Research Fellow and Director of Open Policy, Center for Growth and Opportunity at Utah State University; President and Co-founder, Open Research Group, Inc. (GitHub handle: [@rickecon](https://github.com/rickecon))
+* **Marcelo LaFleur**, Senior Economist, Department of Economic and Social Affairs, United Nations (GitHub handle: [@SeaCelo](https://github.com/SeaCelo))
+* [**Jason DeBacker**](https://jasondebacker.com/), Associate Professor, Department of Economics, University of South Carolina; Vice President and Co-founder, Open Research Group, Inc. (GitHub handle: [@jdebacker](https://github.com/jdebacker))
+* [**Richard W. Evans**](https://sites.google.com/site/rickecon), Senior Research Fellow and Director of Open Policy, Center for Growth and Opportunity at Utah State University; President and Co-founder, Open Research Group, Inc. (GitHub handle: [@rickecon](https://github.com/rickecon))
 
 We welcome collaboration on the maintenance and improvement of this tutorial. If you have changes you would like to see or errors that you find, please open [an issue](https://github.com/OpenRG/UN-OG-Training/issues) in the GitHub repository or submit a [pull request](https://github.com/OpenRG/UN-OG-Training/pulls).
 
