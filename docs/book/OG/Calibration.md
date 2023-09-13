@@ -33,11 +33,11 @@ United States
 
 Figure \ref{} plots population growth rates over time for the three countries illustrated above.  The growth rates are determined by the same mortality and fertility trends that drive the evolution of the population in Figure \ref{}. DESCRIBE the trends here
 
-<!-- :::{figure-md} markdown-fig
+:::{figure-md} markdown-fig
 <img src="../images/pop_growth_rates.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
 
 Population Growth Rates in South Africa, India, and the United States
-::: -->
+:::
 
 ## Exercises
 1. Make a copy of `demographics.py` and modify to get UN data for specific country.
