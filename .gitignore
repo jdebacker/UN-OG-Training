@@ -36,3 +36,7 @@ Icon?
 
 # Built Jupyter-book documentation
 docs/book/_build
+
+# Backup docs
+pdfs/*
+
