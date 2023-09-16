@@ -73,13 +73,14 @@ All of these will be included as part of your installation of Anaconda.  Anacond
 ## Python Training Topics
 
 1. [Python Standard Library](StandardLibrary.md)
-2. [Object Oriented Programming](OOP.md)
-3. [NumPy](NumPy.md)
-4. [Pandas](Pandas.md)
-5. [Matplotlib](Matplotlib.md)
-6. [SciPy](SciPy.md)
-7. [Doc strings and comments](DocStrings.md)
-8. [Unit testing in Python](UnitTesting.md)
+2. [Exception handling and file input/output](ExceptionsIO.md)
+3. [Object Oriented Programming](OOP.md)
+4. [NumPy](NumPy.md)
+5. [Pandas](Pandas.md)
+6. [Matplotlib](Matplotlib.md)
+7. [SciPy](SciPy.md)
+8. [Doc strings and comments](DocStrings.md)
+9. [Unit testing in Python](UnitTesting.md)
 
 
 <!-- (SecPythonIntroFootnotes)=
