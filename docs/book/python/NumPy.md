@@ -1,6 +1,4 @@
 (Chap_Numpy)=
-
-
 # NumPy
 
 ACME materials link...
