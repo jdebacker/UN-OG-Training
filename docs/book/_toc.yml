@@ -24,6 +24,7 @@ parts:
     - file: OG/Calibration
   - caption: Appendix
     chapters:
+    - file: appendix/glossary
     - file: appendix/intro
   - caption: References
     chapters:
