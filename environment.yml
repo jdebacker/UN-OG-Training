@@ -25,3 +25,4 @@ dependencies:
   - ogcore
   - linecheck
   - yaml-changelog
+  - sphinx-exercise

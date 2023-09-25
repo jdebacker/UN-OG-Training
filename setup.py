@@ -34,6 +34,7 @@ setup(
         "bokeh",
         "sphinx",
         "sphinx-argparse",
+        "sphinx-exercise",
         "sphinxcontrib-bibtex>=2.0.0",
         "sphinx-math-dollar",
         "pydata-sphinx-theme",

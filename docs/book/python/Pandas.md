@@ -1,6 +1,4 @@
 (Chap_Pandas)=
-
-
 # Pandas
 
 ACME materials link...
