@@ -1,7 +1,14 @@
 (Chap_Numpy)=
 # NumPy
 
-ACME materials link...
+<div>
+  <iframe id="inlineFrameExample"
+      title="Inline Frame Example"
+      width="100%"
+      height="700"
+      src="https://acme.byu.edu/00000181-448a-d778-a18f-dfcae22f0001/intro-to-python">
+  </iframe>
+</div>
 
 
 # Exercises
