@@ -26,7 +26,7 @@ b=
   \end{bmatrix}
 \].
 $$
-  Use the `shape` method of Numpy arrays to print the shape of this matrix.  Use array slicing to print the first row of `b`, which represents the lifecycle savings decisions of the first agent (i.e., the amount they choose to save in each of their 5 periods of life).  Use array slicing to print the second column of `b`, which is the saves of both agents when they are in their second period of life.  Finally, use array slicing to print the first two rows and the last three columns of `b` (i.e., the savings of both agents from middle age onwards).
+  Use the `shape` method of NumPy arrays to print the shape of this matrix.  Use array slicing to print the first row of `b`, which represents the lifecycle savings decisions of the first agent (i.e., the amount they choose to save in each of their 5 periods of life).  Use array slicing to print the second column of `b`, which is the saves of both agents when they are in their second period of life.  Finally, use array slicing to print the first two rows and the last three columns of `b` (i.e., the savings of both agents from middle age onwards).
 ```{exercise-end}
 ```
 
