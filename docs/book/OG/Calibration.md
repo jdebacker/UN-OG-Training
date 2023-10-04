@@ -31,6 +31,30 @@ India
 United States
 :::
 
+<!-- Below I test using sphinx panels, but it doesn't seem to work -->
+````{panels}
+:container: container-fluid
+:column: col-lg-6 col-md-6 col-sm-6 col-xs-12
+:card: shadow-none border-0
+
+```{figure} "./images/ZAF_pop_distribution.png"
+:width: 100%
+:name: example1
+
+Sub-caption 1
+```
+
+---
+
+```{figure} "./images/IND_pop_distribution.png"
+:width: 100%
+:name: example2
+
+Sub-caption 2
+```
+
+````
+
 Figure \ref{TODO: add reference to 3 panel figure} plots population growth rates over time for the three countries illustrated above.  The growth rates are determined by the same mortality, fertility, and immigration trends that drive the evolution of the population in Figure \ref{}. In terms of population growth, we see that in all countries the population growth rate is declining in each of the three counties over the next 60 years.  This is consistent with what we saw in the evolution of the population distribution in the three countries above: each economy is aging and with relatively more older individuals, total fertility will be declining.  Looking at the level of population growth in the long run in Figure \ref{figure-md}, we see that India and the United States will have negative population growth, which will put downward pressure on their long run economic growth rates.  In contract, South Africa will have positive population growth, owing to it's relatively high fertility rates, which will contribute positively to that economy in the long run.
 
 :::{figure-md} markdown-fig
@@ -62,7 +86,7 @@ Using your modified `demographics.py`, plot the fertility rates in this country.
 ```{exercise-start}
 :label: ExerCalib-demo_mort
 ```
-Let's to the same for mortality rates.  In this case, you will want interact with the `demographics.get_mort` function.
+Let's do the same for mortality rates.  In this case, you will want interact with the `demographics.get_mort` function.
 ```{exercise-end}
 ```
 
