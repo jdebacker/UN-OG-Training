@@ -17,7 +17,7 @@ One image [`UN-OG-Training_logo_gitfig.png`](docs/UN-OG-Training_logo_gitfig.png
 ## Other notes
 
 * For the iframes that show PDF files stored on Google Drive, the URL needs to be adjusted to say "preview" instead of "view". For example an iframe HTML code block referencing the following BYU ACME Lab might look like the following, where the URL in the `src` field is just copied from Google Drive. Note it has the "view" specification.
-```python
+```html
 <div>
   <iframe id="inlineFrameExample"
       title="Inline Frame Example"
@@ -28,7 +28,7 @@ One image [`UN-OG-Training_logo_gitfig.png`](docs/UN-OG-Training_logo_gitfig.png
 </div>
 ```
 This code will produce a "Google Drive Forbidden Error 403" in the rendered Jupyter book. The solution is to change the URL from "view" to "preview". The following example is how we correctly specify these iframes in this Jupyter book.
-```python
+```html
 <div>
   <iframe id="inlineFrameExample"
       title="Inline Frame Example"
