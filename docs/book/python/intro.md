@@ -110,5 +110,3 @@ In the iframe below is a PDF of the BYU ACME open-access lab entitled, "Unix She
       src="https://drive.google.com/file/d/18eTLp_FhWFYgAItIZnX6gesIvg91rXW5/preview?usp=sharing">
   </iframe>
 </div>
-
-https://drive.google.com/file/d/18eTLp_FhWFYgAItIZnX6gesIvg91rXW5/view?usp=sharing
