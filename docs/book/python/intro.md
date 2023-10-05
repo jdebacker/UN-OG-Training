@@ -92,7 +92,7 @@ All of these will be included as part of your installation of Anaconda.  Anacond
 
 Unix is an old operating system that is the basis for the Linux and Mac operating systems. Many Python users with Mac or Linux operating systems follow a workflow that includes working in the terminal and using Unix commands. This section is optional because Windows terminals do not have the same Unix commands. For those interested, feel free to work through the Unix lab below from BYU ACME. This lab features great examples and instruction, and also has seven good exercises for you to practice on.
 
-In the iframe below is a PDF of the BYU ACME open-access lab entitled, "Unix Shell 1: Introduction". You can either scroll through the lab on this page using the iframe window, or you can download the PDF for use on your computer. See {cite}`BYUACME_Unix1`.
+In the iframe below is a PDF of the BYU ACME open-access lab entitled, "Unix Shell 1: Introduction". You can either scroll through the lab on this page using the iframe window, or you can download the PDF for use on your computer. See {cite}`BYUACME_Unix1`. {numref}`ExerUnix1` below has you work through the problems in this BYU ACME lab.
 
 <div>
   <iframe id="inlineFrameExample"
