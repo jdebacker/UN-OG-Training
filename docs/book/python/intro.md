@@ -45,7 +45,7 @@ Some extensions that we recommend installing into your VS Code:
 
 In addition, [GitHub Copilot](https://github.com/features/copilot) is an amazing resource and can be added as an extension to VS Code. However, this service is not free of charge and does require an internet connection to work.
 
-In the iframe below is a PDF of the BYU ACME open-access lab entitled, "Python Intro". You can either scroll through the lab on this page using the iframe window, or you can download the PDF for use on your computer. See {cite}`BYUACME_PythonIntro`.
+In the iframe below is a PDF of the BYU ACME open-access lab entitled, "Python Intro". You can either scroll through the lab on this page using the iframe window, or you can download the PDF for use on your computer. See {cite}`BYUACME_PythonIntro`. {numref}`ExerPythonIntro` below has you work through the problems in this BYU ACME lab.
 
 <div>
   <iframe id="inlineFrameExample"
@@ -55,14 +55,6 @@ In the iframe below is a PDF of the BYU ACME open-access lab entitled, "Python I
       src="https://drive.google.com/file/d/1CHl8C-QKgs8jHzsRfJSMWkVqq0elzP1F/preview?usp=sharing">
   </iframe>
 </div>
-
-```{exercise-start}
-:label: ExerPythonIntro
-:
-```
-Read the BYU ACME "[Introduction to Python](https://acme.byu.edu/00000181-448a-d778-a18f-dfcae22f0001/intro-to-python)" lab and complete Problems 1 through 8 in the lab. {cite}`BYUACME_PythonIntro`
-```{exercise-end}
-```
 
 We cover Python's built-in functions, constants, and data types and their properties in {numref}`ExerStandardLibrary` of the {ref}`Chap_StdLib` chapter. We also introduce different commonly used objects like Numpy arrays and operations in chapter {ref}`Chap_Numpy` and Pandas DataFrames and operations in chapter {ref}`Chap_Pandas`.
 
@@ -110,3 +102,22 @@ In the iframe below is a PDF of the BYU ACME open-access lab entitled, "Unix She
       src="https://drive.google.com/file/d/18eTLp_FhWFYgAItIZnX6gesIvg91rXW5/preview?usp=sharing">
   </iframe>
 </div>
+
+(SecPythonIntroExercises)=
+## Exercises
+
+```{exercise-start} Python introduction
+:label: ExerPythonIntro
+:
+```
+Read the BYU ACME "[Introduction to Python](https://drive.google.com/file/d/1CHl8C-QKgs8jHzsRfJSMWkVqq0elzP1F/view?usp=sharing)" lab and complete Problems 1 through 8 in the lab. {cite}`BYUACME_PythonIntro`
+```{exercise-end}
+```
+
+```{exercise-start} OPTIONAL: Unix shell commands
+:label: ExerUnix1
+:
+```
+Read the BYU ACME "[Unix Shell 1: Introduction](https://drive.google.com/file/d/18eTLp_FhWFYgAItIZnX6gesIvg91rXW5/view?usp=sharing)" lab and complete Problems 1 through 7 in the lab. {cite}`BYUACME_Unix1`
+```{exercise-end}
+```
