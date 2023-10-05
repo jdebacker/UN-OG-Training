@@ -108,7 +108,7 @@ In the iframe below is a PDF of the BYU ACME open-access lab entitled, "Unix She
 
 ```{exercise-start} Python introduction
 :label: ExerPythonIntro
-:
+:class: green
 ```
 Read the BYU ACME "[Introduction to Python](https://drive.google.com/file/d/1CHl8C-QKgs8jHzsRfJSMWkVqq0elzP1F/view?usp=sharing)" lab and complete Problems 1 through 8 in the lab. {cite}`BYUACME_PythonIntro`
 ```{exercise-end}
@@ -116,7 +116,7 @@ Read the BYU ACME "[Introduction to Python](https://drive.google.com/file/d/1CHl
 
 ```{exercise-start} OPTIONAL: Unix shell commands
 :label: ExerUnix1
-:
+:class: green
 ```
 Read the BYU ACME "[Unix Shell 1: Introduction](https://drive.google.com/file/d/18eTLp_FhWFYgAItIZnX6gesIvg91rXW5/view?usp=sharing)" lab and complete Problems 1 through 7 in the lab. {cite}`BYUACME_Unix1`
 ```{exercise-end}
