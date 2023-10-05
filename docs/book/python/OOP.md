@@ -1,7 +1,13 @@
 (Chap_OOP)=
 # Object Oriented Programming
 
-The iframe below contains a PDF of the BYU ACME open-access lab entitled, "Object-oriented Programming". You can either scroll through the lab on this page using the iframe window, or you can download the PDF for use on your computer. See {cite}`BYUACME_OOP`. {numref}`ExerOOP-acme` below has you work through the problems in this BYU ACME lab.
+Python is literally a programming language built on objects. Objects are instances of classes. And classes are definitions of objects with their corresponding methods and attributes. Objects are a powerful way to group functionality and attributes in a class that has a limited and common set of characteristics.
+
+An analogy is how life forms are classified by [taxonomic rank](https://en.wikipedia.org/wiki/Taxonomic_rank) going from most general to most specific: domain, kingdom, phylum, class, order, family, genus, and species {cite}`WikiTaxonomicRank`. If you have a model of all the different types of cats, you would probably care about the taxonomic rank *family* of *felidae* or cats. If you were interested in modeling all the different types of mammals that live on land, you might need many different *orders*, with sub-class objects for each *family*, *genus*, and *species* within each order.
+
+Python objects defined as classes have a limited set of attributes that apply to that class in the same way the cat family *felidae* has different attributes than the dog family *canidae*. In the family of `OG-Core` macroeconomic model country calibrations, we have many custom objects defined by classes, the most important of which might be the `parameters` class.
+
+Using objects wisely and efficiently can make your code more readable, easier to modify and use, more scalable, and more interoperable. The iframe below contains a PDF of the BYU ACME open-access lab entitled, "Object-oriented Programming". You can either scroll through the lab on this page using the iframe window, or you can download the PDF for use on your computer. See {cite}`BYUACME_OOP`. {numref}`ExerOOP-acme` below has you work through the problems in this BYU ACME lab.
 
 <div>
   <iframe id="inlineFrameExample"
