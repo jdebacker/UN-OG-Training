@@ -4,7 +4,7 @@
 ACME materials link...
 
 
-# Exercises
+## Exercises
 
 ```{exercise-start}
 :label: ExerScipy-root_save
