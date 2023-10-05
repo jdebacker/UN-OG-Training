@@ -52,7 +52,7 @@ In the iframe below is a PDF of the BYU ACME open-access lab entitled, "Python I
       title="Inline Frame Example"
       width="100%"
       height="700"
-      src="https://drive.google.com/file/d/1CHl8C-QKgs8jHzsRfJSMWkVqq0elzP1F/view?usp=sharing">
+      src="https://drive.google.com/file/d/1CHl8C-QKgs8jHzsRfJSMWkVqq0elzP1F/preview?usp=sharing">
   </iframe>
 </div>
 
@@ -96,7 +96,7 @@ All of these will be included as part of your installation of Anaconda.  Anacond
 
 
 (SecPythonIntroUnix)=
-## (Optional: Using the Unix Shell)
+## (Optional): Using the Unix Shell
 
 Unix is an old operating system that is the basis for the Linux and Mac operating systems. Many Python users with Mac or Linux operating systems follow a workflow that includes working in the terminal and using Unix commands. This section is optional because Windows terminals do not have the same Unix commands. For those interested, feel free to work through the Unix lab below from BYU ACME. This lab features great examples and instruction, and also has seven good exercises for you to practice on.
 
@@ -107,6 +107,8 @@ In the iframe below is a PDF of the BYU ACME open-access lab entitled, "Unix She
       title="Inline Frame Example"
       width="100%"
       height="700"
-      src="https://drive.google.com/file/d/18eTLp_FhWFYgAItIZnX6gesIvg91rXW5/view?usp=sharing">
+      src="https://drive.google.com/file/d/18eTLp_FhWFYgAItIZnX6gesIvg91rXW5/preview?usp=sharing">
   </iframe>
 </div>
+
+https://drive.google.com/file/d/18eTLp_FhWFYgAItIZnX6gesIvg91rXW5/view?usp=sharing
