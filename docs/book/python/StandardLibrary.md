@@ -15,6 +15,7 @@ In addition, the iframe below contains a PDF of the BYU ACME open-access lab ent
 </div>
 
 
+(SecStdLibExercises)=
 ## Exercises
 
 ```{exercise-start}
