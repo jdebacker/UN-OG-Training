@@ -1,6 +1,4 @@
-(Chap_Scipy)=
-
-
+(Chap_SciPy)=
 # SciPy
 
 ACME materials link...
