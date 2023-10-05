@@ -7,17 +7,17 @@
 
 
 def prob1():
-    """ Define the matrices A and B as arrays. Return the matrix product AB. """
+    """Define the matrices A and B as arrays. Return the matrix product AB."""
     raise NotImplementedError("Problem 1 Incomplete")
 
 
 def prob2():
-    """ Define the matrix A as an array. Return the matrix -A^3 + 9A^2 - 15A. """
+    """Define the matrix A as an array. Return the matrix -A^3 + 9A^2 - 15A."""
     raise NotImplementedError("Problem 2 Incomplete")
 
 
 def prob3():
-    """ Define the matrices A and B as arrays using the functions presented in
+    """Define the matrices A and B as arrays using the functions presented in
     this section of the manual (not np.array()). Calculate the matrix product ABA,
     change its data type to np.int64, and return it.
     """
@@ -25,7 +25,7 @@ def prob3():
 
 
 def prob4(A):
-    """ Make a copy of 'A' and use fancy indexing to set all negative entries of
+    """Make a copy of 'A' and use fancy indexing to set all negative entries of
     the copy to 0. Return the resulting array.
 
     Example:
@@ -37,7 +37,7 @@ def prob4(A):
 
 
 def prob5():
-    """ Define the matrices A, B, and C as arrays. Use NumPy's stacking functions
+    """Define the matrices A, B, and C as arrays. Use NumPy's stacking functions
     to create and return the block matrix:
                                 | 0 A^T I |
                                 | A  0  0 |
@@ -49,7 +49,7 @@ def prob5():
 
 
 def prob6(A):
-    """ Divide each row of 'A' by the row sum and return the resulting array.
+    """Divide each row of 'A' by the row sum and return the resulting array.
     Use array broadcasting and the axis argument instead of a loop.
 
     Example:
@@ -63,7 +63,7 @@ def prob6(A):
 
 
 def prob7():
-    """ Given the array stored in grid.npy, return the greatest product of four
+    """Given the array stored in grid.npy, return the greatest product of four
     adjacent numbers in the same direction (up, down, left, right, or
     diagonally) in the grid. Use slicing, as specified in the manual.
     """

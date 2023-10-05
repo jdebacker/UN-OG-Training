@@ -22,10 +22,14 @@ def arithmagic():
     The fourth number step_4 is not the reverse of the third number.
     """
 
-    step_1 = input("Enter a 3-digit number where the first and last "
-                                           "digits differ by 2 or more: ")
-    step_2 = input("Enter the reverse of the first number, obtained "
-                                              "by reading it backwards: ")
+    step_1 = input(
+        "Enter a 3-digit number where the first and last "
+        "digits differ by 2 or more: "
+    )
+    step_2 = input(
+        "Enter the reverse of the first number, obtained "
+        "by reading it backwards: "
+    )
     step_3 = input("Enter the positive difference of these numbers: ")
     step_4 = input("Enter the reverse of the previous result: ")
     print(str(step_3), "+", str(step_4), "= 1089 (ta-da!)")
@@ -58,41 +62,42 @@ class ContentFilter(object):
         contents (str): the contents of the file
 
     """
+
     # Problem 3
     def __init__(self, filename):
-        """ Read from the specified file. If the filename is invalid, prompt
+        """Read from the specified file. If the filename is invalid, prompt
         the user until a valid filename is given.
         """
 
- # Problem 4 ---------------------------------------------------------------
+    # Problem 4 ---------------------------------------------------------------
     def check_mode(self, mode):
-        """ Raise a ValueError if the mode is invalid. """
+        """Raise a ValueError if the mode is invalid."""
 
-    def uniform(self, outfile, mode='w', case='upper'):
-        """ Write the data to the outfile with uniform case. Include an additional
+    def uniform(self, outfile, mode="w", case="upper"):
+        """Write the data to the outfile with uniform case. Include an additional
         keyword argument case that defaults to "upper". If case="upper", write
         the data in upper case. If case="lower", write the data in lower case.
-        If case is not one of these two values, raise a ValueError. """
+        If case is not one of these two values, raise a ValueError."""
 
-
-    def reverse(self, outfile, mode='w', unit='word'):
-        """ Write the data to the outfile in reverse order. Include an additional
+    def reverse(self, outfile, mode="w", unit="word"):
+        """Write the data to the outfile in reverse order. Include an additional
         keyword argument unit that defaults to "line". If unit="word", reverse
         the ordering of the words in each line, but write the lines in the same
         order as the original file. If units="line", reverse the ordering of the
         lines, but do not change the ordering of the words on each individual
-        line. If unit is not one of these two values, raise a ValueError. """
+        line. If unit is not one of these two values, raise a ValueError."""
 
-    def transpose(self, outfile, mode='w'):
-        """ Write a transposed version of the data to the outfile. That is, write
+    def transpose(self, outfile, mode="w"):
+        """Write a transposed version of the data to the outfile. That is, write
         the first word of each line of the data to the first line of the new file,
         the second word of each line of the data to the second line of the new
         file, and so on. Viewed as a matrix of words, the rows of the input file
         then become the columns of the output file, and viceversa. You may assume
-        that there are an equal number of words on each line of the input file. """
+        that there are an equal number of words on each line of the input file.
+        """
 
     def __str__(self):
-        """ Printing a ContentFilter object yields the following output:
+        """Printing a ContentFilter object yields the following output:
 
         Source file:            <filename>
         Total characters:       <The total number of characters in file>

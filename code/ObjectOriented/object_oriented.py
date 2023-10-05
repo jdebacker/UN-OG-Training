@@ -58,6 +58,7 @@ class Knapsack(Backpack):
         contents (list): the contents of the backpack.
         closed (bool): whether or not the knapsack is tied shut.
     """
+
     def __init__(self, name, color):
         """Use the Backpack constructor to initialize the name, color,
         and max_size attributes. A knapsack only holds 3 item by default.
