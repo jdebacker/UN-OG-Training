@@ -30,6 +30,17 @@ The following iframe contains a PDF of the BYU ACME open-access lab entitled, "A
 </div>
 
 
+(SecNumPyExtensions)=
+## Extensions and future paths
+
+One of the drawbacks to the degree to which NumPy arrays are fundamental to Python's numerical computing is that the format of those arrays is a requirement in Python's most highly used scientific computing and machine learning packages ({ref}`Chap_SciPy` and scikit-learn). However, advances in hardware, large data methods, and optimization algorithms now take much more advantage of parallel computing algorithms, hybrid architectures across multiple traditional processors and GPU's. All of these innovations have been difficult to incorporate into Python's scientific computing stack because NumPy arrays have been difficult to make flexible to these architectures.
+
+Below are three areas that have been working to make Python better on these dimentions.
+* Dask arrays
+* QuantSight development and support of array API's in SciPy and in scikit-learn. See here for the [scikit-learn blog post](https://labs.quansight.org/blog/array-api-support-scikit-learn). And see here for the [SciPy blog post](https://labs.quansight.org/blog/scipy-array-api).
+* Modular's development of the Mojo programming language.
+
+
 (SecNumPyExercises)=
 ## Exercises
 
