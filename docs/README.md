@@ -51,7 +51,7 @@ Jupyter Book gives an error for markdown code that has footnotes immediately aft
 [^footnote_name]: Generic footnote text.
 ```
 The error we would get in the Jupyter book text looked like the following.
-```error
+```
 /Users/richardevans/Docs/Economics/OSE/UN-OG-Training/docs/book/python/NumPy.md:127: ERROR: Document or section may not begin with a transition.
 ```
 
