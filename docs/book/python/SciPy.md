@@ -107,7 +107,7 @@ The following strategies for successfully finding the solution to systems of equ
 
 Include simple numerical example.
 
-In the `OG-Core` model, every age-$s$ individual in the model chooses how much to consume $c_{s,t}$, save $b_{s+1,t+1}$, and labor supply $n_{s,t}$ each period $t$. In this model, each individual's decision problem can be reduced to choosing consumption $c_{s,t}$ and labor supply $n_{s,t}$ each period. In this section, we will focus only on solving the equations that characterize the optimal labor supply decision. But Exercises ? and ? use the equations that characterize the optimal consumption decisions.
+In the `OG-Core` macroeconomic model, every age-$s$ individual in the model chooses how much to consume $c_{s,t}$, save $b_{s+1,t+1}$, and labor supply $n_{s,t}$ each period $t$.[^OG-Core-Indiv] In this model, each individual's decision problem can be reduced to choosing consumption $c_{s,t}$ and labor supply $n_{s,t}$ each period. In this section, we will focus only on solving the equations that characterize the optimal labor supply decision. But Exercises ? and ? use the equations that characterize the optimal consumption decisions.
 
 
 (SecSciPyMin)=
@@ -147,7 +147,7 @@ or
     ? \\ ? \\ ?
   \end{bmatrix}
 \end{equation*}
-Use linear algebra matrix inversion to solve for the solution $\hat{x}\equiv[\hat{x}_1,\hat{x}_2,\hat{x}_3]^T$ to the equation. Next, use `scipy.optimize.root` to solve for the same solution. Verify that both sets of answers are close to the nearest $1e-5$.
+Use linear algebra matrix inversion to solve for the solution $\hat{x}\equiv[\hat{x}_1,\hat{x}_2,\hat{x}_3]^T$ to the equation (i.e., $\hat{x} = A^{-1}b$). Next, use `scipy.optimize.root` to solve for the same solution. Verify that both sets of answers are close to the nearest $1e-5$.
 ```{exercise-end}
 ```
 
@@ -195,3 +195,5 @@ The footnotes from this chapter.
 [^SciPy]: The website for Python's SciPy package is https://scipy.org.
 
 [^SciPyJuddMethods]: See {cite}`Judd:1998` (Chap. 5) for a discussion of solution methods to nonlinear equations.
+
+[^OG-Core-Indiv]: See `OG-Core` model documentation theory chapter "[Households](https://pslmodels.github.io/OG-Core/content/theory/households.html)".
