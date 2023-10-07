@@ -1,16 +1,113 @@
 (Chap_SciPy)=
-# SciPy
+# SciPy: Root finding, minimizing, interpolation
 
 SciPy is Python's primary scientific computing package.[^SciPy] As described in the {ref}`Chap_NumPy` chapter, SciPy is built with NumPy as a core dependency. The SciPy website [homepage](https://scipy.org/) states that, "SciPy provides algorithms for optimization, integration, interpolation, eigenvalue problems, algebraic equations, differential equations, statistics and many other classes of problems."
 
-The `OG-Core` model and its country calibrations use SciPy primarily for three things, although there are some other smaller use cases.
+The `OG-Core` model and its country calibrations use SciPy primarily for three functionalities, although there are some other smaller use cases.
 * Finding the roots or zeros of functions ([`scipy.optimize.root`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root.html))
 * Solving minimization problem ([`scipy.optimize.minimize`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html))
 * Interpolation ([`scipy.interpolate`](https://docs.scipy.org/doc/scipy/tutorial/interpolate.html))
 
 
-(Sec SciPyRoot)=
+(SecSciPyRoot)=
 ## Root finding
+
+
+(SecSciPyRoot_theory)=
+### Root finding theory
+
+Root finding is equivalent to finding the solution to a system of equations. For example, observe the following quadratic equation.
+```{math}
+  :label: EqSciPy_UnivarNonZeroFunc
+  ax^2 + bx + c = 12
+```
+We can always restate that equation as a function that equals zero.
+```{math}
+  :label: EqSciPy_UnivarZeroFunc
+  ax^2 + bx + c - 12 = 0
+```
+
+Let $f(x)$ be a vector of functions $f_r(x)$, each of which is a function of a vector of variables $x\equiv\left[x_1,x_2,...x_K\right]$. Without loss of generality, we can specify an arbitrary number of functions $f(x)$ as an equation equal to zero.
+```{math}
+  :label: EqSciPy_ZeroFunc
+  f(x)=0 \quad\text{or}\quad
+    \begin{bmatrix}
+      f_1(x) \\
+      f_2(x) \\
+      \vdots \\
+      f_R(x) \\
+    \end{bmatrix} =
+    \begin{bmatrix}
+      0 \\
+      0 \\
+      \vdots \\
+      0
+    \end{bmatrix}
+```
+Examples of systems that fit this representation in {eq}`EqSciPy_ZeroFunc` include single equations like {eq}`EqSciPy_UnivarNonZeroFunc` and {eq}`EqSciPy_UnivarZeroFunc`, systems of linear equations, univariate and multivariate equations, and systems of nonlinear equations.
+
+```{prf:definition} System Rank
+:label: DefSciPy_SysRank
+
+The **system rank** $R^*$ for the system of $R$ equations $f(x)$ with $K$ variables $x=[x_1, x_2,...x_K]$ is the number of equations in $f:\mathbb{R}^K\rightarrow\mathbb{R}^R$ that are independent of each other, such that $R^*\leq R$, where independence of two equations is defined as:
+\begin{equation*}
+  f_r(x) \neq f_s(x) \quad\forall r\neq s
+\end{equation*}
+```
+
+As an example of system rank in {prf:ref}`DefSciPy_SysRank`, the following system of equations has three equations $R=3$ but only has rank two $R^*=2$ because the first equation is equal to the second equation. The first equation is simply two times the first equation. The second equation gives no unique information once we know the first equation. Only two equations in this system give unique information.
+\begin{equation*}
+  \begin{split}
+    3x + y +10z = 0.5 \\
+    6x + 2y + 20z = 1 \\
+    x + y - z = 7
+  \end{split}
+\end{equation*}
+
+System rank of $R^*<R$ can also occur when two equations are nonlinear combinations of each other. The following system of two equations $R=2$ only has system rank $R^*=1$ because the second equation is just the square of the first equation. Again, the second equation gives no unique information once we know the first equation.
+\begin{equation*}
+  \begin{split}
+    x + y = 0 \\
+    x^2 + 2xy + y^2 = 0
+  \end{split}
+\end{equation*}
+
+```{prf:definition} Identification
+:label: DefSciPy_Identif
+
+A system of equations $f(x)$ with $K$ variables $x=[x_1, x_2,...x_K]$ and $R^*$ independent equations is characterized as:
+* **identified** if the number of independent equations is at least as large as the number of variables $R^*\geq K$
+* **exactly identified** if the number of independent equations exactly equals the number of variables $R^*=K$
+* **over identified** if the number of independent equations is strictly greater than the number of variables $R^*>K$
+* **under identified** if the number of independent equations is strictly less than the number of variables $R^*<K$
+```
+
+Many systems of equations that occur in theoretical models are *exactly identified* as defined in {prf:ref}`DefSciPy_Identif`. The easiest way to solve exactly identified systems of linear equations---systems in which each function $f_i(x)$ is a linear function of the vector of $x$ variables---is often matrix inversion. When the system of equations $f(x)$ is nonlinear, finding the solution takes more advanced methods.[^SciPyJuddMethods]
+
+It is *not* widely recognized among researchers that even in systems of equations for which existence and uniqueness of the solution can be proven, no root finding algorithm with finite computational power exists that guarantees convergence to the solution of the system in every case. Judd states:
+
+> Nonlinear equation solving presents problems not present with linear equations or optimization. In particular, the existence problem is much more difficult for nonlinear systems. Unless one has an existence proof in had, a programmer must keep in mind that the absence of a solutino may explain a program's failure to converge. Ever if there exists a solution, all methods will do poorly if the problem is poorly conditioned near a solution. Transforming the problem will often improve performance.{cite}`Judd:1998` (p. 192)
+
+Because root finding in nonlinear systems can be so difficult, much research into the best methods has accumulated over the years. And the approaches to solving nonlinear systems can be an art as much as a science. This is also true of minimization problems discussed in the next section ({ref}`SecSciPyMin`). For this reason, the [`scipy.optimize.root`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root.html) module has many different solution algorithms you can use to find the solution to a nonlinear system of equations (e.g., `hybr`, `lm`, `linearmixing`).
+
+Before we go through some root finding examples using [`scipy.optimize.root`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root.html), we want to share some root finding wisdom in the following {prf:ref}`ObsSciPy_RootMinWisdom` that we have learned over the years. The wisdom in this definition also applies to minimization problems discussed in the following section.
+
+```{prf:observation} Root finding and minimization problem wisdom
+:label: ObsSciPy_RootMinWisdom
+
+The following strategies for successfully finding the solution to systems of equations or finding the global minimum of an optimization problem come from long experience working with these problems.
+1. Knowing and debugging the **underlying model theory** is often more effective and more important than finding the best, most advanced, or most robust root finder or minimizer. In most instances in which our optimizers have given non solutions or incorrect solutions, the adjustment that fixed the problem was most often going back to the underlying system of equations and understanding what they mean.
+2. Choose an **intelligent initial guess**. Many optimization algorithms require an initial guess as an input. When the underlying system of equations or criterion function is highly nonlinear, a good initial guess is critical for the root finder or minimizer to converge. The theory or the underlying data often suggest a reasonable initial guess. In dynamic models, the steady-state or the previous period's solution might be a good initial guess.
+3. Give the root finder or minimizer **as much information as possible** about the problem. Many root finders and minimizers can take as inputs contraints on the solution and theoretical derivatives. These save the algorithm computational calories and may engage components of the algorithm that are specifically designed to use those details.
+```
+
+
+(SecSciPyRoot_examp)=
+### Root finding examples
+
+Include simple numerical example.
+
+In the `OG-Core` model, every age-$s$ individual in the model chooses how much to consume $c_{s,t}$, save $b_{s+1,t+1}$, and labor supply $n_{s,t}$ each period $t$. In this model, each individual's decision problem can be reduced to choosing consumption $c_{s,t}$ and labor supply $n_{s,t}$ each period. In this section, we will focus only on solving the equations that characterize the optimal labor supply decision. But Exercises ? and ? use the equations that characterize the optimal consumption decisions.
 
 
 (SecSciPyMin)=
@@ -23,6 +120,36 @@ The `OG-Core` model and its country calibrations use SciPy primarily for three t
 
 (SecSciPyExercises)=
 ## Exercises
+
+```{exercise-start} Linear algebra vs. root finder
+:label: ExerScipy-root-lin
+:class: green
+```
+Define an exactly identified linear system of three equations and three unknown variables $R=R^*=3=K$.
+\begin{equation*}
+  \begin{split}
+    ?x_1 + ?x_2 + ?x_3 = ? \\
+    ?x_1 + ?x_2 + ?x_3 = ? \\
+    ?x_1 + ?x_2 + ?x_3 = ?
+  \end{split}
+\end{equation*}
+or
+\begin{equation*}
+  \begin{bmatrix}
+    ? & ? & ? \\
+    ? & ? & ? \\
+    ? & ? & ? \\
+  \end{bmatrix}
+  \begin{bmatrix}
+    x_1 \\ x_2 \\ x_3
+  \end{bmatrix} =
+  \begin{bmatrix}
+    ? \\ ? \\ ?
+  \end{bmatrix}
+\end{equation*}
+Use linear algebra matrix inversion to solve for the solution $\hat{x}\equiv[\hat{x}_1,\hat{x}_2,\hat{x}_3]^T$ to the equation. Next, use `scipy.optimize.root` to solve for the same solution. Verify that both sets of answers are close to the nearest $1e-5$.
+```{exercise-end}
+```
 
 ```{exercise-start}
 :label: ExerScipy-root_save
@@ -66,3 +193,5 @@ Use `scipy.interpolate`...
 The footnotes from this chapter.
 
 [^SciPy]: The website for Python's SciPy package is https://scipy.org.
+
+[^SciPyJuddMethods]: See {cite}`Judd:1998` (Chap. 5) for a discussion of solution methods to nonlinear equations.
