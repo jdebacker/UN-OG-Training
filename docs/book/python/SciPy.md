@@ -143,7 +143,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def eqSciPyRoot_examp1_eq1_y(x):
+def eq1_y_SciPyRoot_examp1(x):
     """
     This function uses the function of x and y in the first equation of example 1
     in the SciPy Chapter, Root finding section to take a value for x and deliver
@@ -154,7 +154,7 @@ def eqSciPyRoot_examp1_eq1_y(x):
     return y
 
 
-def eqSciPyRoot_examp1_eq2_y(x):
+def eq2_y_SciPyRoot_examp1(x):
     """
     This function uses the function of x and y in the second equation of example 1
     in the SciPy Chapter, Root finding section to take a value for x and deliver
@@ -168,8 +168,8 @@ def eqSciPyRoot_examp1_eq2_y(x):
 xmin = -2
 xmax = 6
 xvals = np.linspace(xmin, xmax, 500)
-y1vals = eqSciPyRoot_examp1_eq1_y(xvals)
-y2vals = eqSciPyRoot_examp1_eq2_y(xvals)
+y1vals = eq1_y_SciPyRoot_examp1(xvals)
+y2vals = eq2_y_SciPyRoot_examp1(xvals)
 plt.plot(xvals, y1vals, color='blue', label=r"equation 1: $y=x^2 - 4x + 5$")
 plt.plot(xvals, y2vals, color='red', label=r"equation 2: $y=e^x$")
 plt.hlines([0], -3, 7, colors=["black"], linestyles=["dashed"])
@@ -190,6 +190,45 @@ Solution to two nonlinear functions in $x$ and $y$
 ```
 
 We can now use SciPy's root finder [`scipy.optimize.root`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root.html) to find the solution to equations {eq}`EqSciPyRootEx1a` and {eq}`EqSciPyRootEx1b`.
+
+Note first some properties of the theory or the functions in the system of equations. Although equation {eq}`EqSciPyRootEx1a` is defined for any $x$ in the real line $x\in(-\infty,\infty)$, it is only defined for $y$ weakly greater than one $y\geq 1$. However, the right-hand-side of {eq}`EqSciPyRootEx1a` is defined for any values of $x$ and $y$ on the real line. Similarly, equation {eq}`EqSciPyRootEx1b` is defined for any $x$ in the real line $x\in(-\infty,\infty)$, it is only defined for strictly positive $y>0$. But any values for $x$ and $y$ on the real line are defined for the right-hand-si
+
+```{code-cell} ipython3
+:tags: []
+
+def f1_SciPyRoot_examp1(x, y):
+    """
+    This is the evaluation of the right-hand-side of the first equation of example 1
+    in the SciPy Chapter, Root finding section. We can interpret this value as an
+    error because it need not equal zero in general.
+    """
+    error1 = (x ** 2) - (4 * x) + 5 - y
+
+    return error1
+
+
+def f2_SciPyRoot_examp1(x, y):
+    """
+    This is the evaluation of the right-hand-side of the second equation of example 1
+    in the SciPy Chapter, Root finding section. We can interpret this value as an
+    error because it need not equal zero in general.
+    """
+    error2 = np.exp(x) - y
+
+    return error2
+
+
+def errfunc_SciPyRoot_examp1(xy_list):
+    """
+    This function takes as arguments
+    """
+    x, y = xy_list
+    error_func1 = f1_SciPyRoot_examp1(x, y)
+    error_func2 = f2_SciPyRoot_examp1(x, y)
+    errors_list = [error_func1, error_func2]
+
+    return errors_list
+```
 
 
 (SecSciPyRoot_examp2)=
