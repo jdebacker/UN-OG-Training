@@ -1,3 +1,15 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 (Chap_SciPy)=
 # SciPy: Root finding, minimizing, interpolation
 
@@ -105,7 +117,83 @@ The following strategies for successfully finding the solution to systems of equ
 (SecSciPyRoot_examp)=
 ### Root finding examples
 
-Include simple numerical example.
+
+(SecSciPyRoot_examp1)=
+#### Simple numerical example
+
+Assume that the system of equations we are trying to solve is a two-equation system $R=2$ of nonlinear independent equations in two variables $x$ and $y$.
+
+```{math}
+  :label: EqSciPyRootEx1a
+
+  x^2 - 4x + 5 - y = 0
+```
+```{math}
+  :label: EqSciPyRootEx1b
+
+  e^x - y = 0
+```
+
+By plotting these two equations in {numref}`Figure %s <FigScipyRoot_examp1>`, we can see that there is only one solution. And just by looking at the plot, we can see that the solution is close to $(\hat{x},\hat{y})\approx (0.9, 2.2)$.
+
+```{code-cell} ipython3
+:tags: ["hide-input", "remove-output"]
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def eqSciPyRoot_examp1_eq1_y(x):
+    """
+    This function uses the function of x and y in the first equation of example 1
+    in the SciPy Chapter, Root finding section to take a value for x and deliver
+    the corresponding value for y
+    """
+    y = (x ** 2) - (4 * x) + 5
+
+    return y
+
+
+def eqSciPyRoot_examp1_eq2_y(x):
+    """
+    This function uses the function of x and y in the second equation of example 1
+    in the SciPy Chapter, Root finding section to take a value for x and deliver
+    the corresponding value for y
+    """
+    y = np.exp(x)
+
+    return y
+
+
+xmin = -2
+xmax = 6
+xvals = np.linspace(xmin, xmax, 500)
+y1vals = eqSciPyRoot_examp1_eq1_y(xvals)
+y2vals = eqSciPyRoot_examp1_eq2_y(xvals)
+plt.plot(xvals, y1vals, color='blue', label=r"equation 1: $y=x^2 - 4x + 5$")
+plt.plot(xvals, y2vals, color='red', label=r"equation 2: $y=e^x$")
+plt.hlines([0], -3, 7, colors=["black"], linestyles=["dashed"])
+plt.xlim(xmin, xmax)
+plt.ylim(-0.5, 10)
+plt.xlabel(r"$x$ values")
+plt.ylabel(r"$y$ values")
+plt.legend()
+
+plt.show()
+```
+
+```{figure} ../images/SciPy/root_examp1.png
+:height: 500px
+:name: FigScipyRoot_examp1
+
+Solution to two nonlinear functions in $x$ and $y$
+```
+
+We can now use SciPy's root finder [`scipy.optimize.root`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root.html) to find the solution to equations {eq}`EqSciPyRootEx1a` and {eq}`EqSciPyRootEx1b`.
+
+
+(SecSciPyRoot_examp2)=
+#### OG-Core equations example
 
 In the `OG-Core` macroeconomic model, every age-$s$ individual in the model chooses how much to consume $c_{s,t}$, save $b_{s+1,t+1}$, and labor supply $n_{s,t}$ each period $t$.[^OG-Core-Indiv] In this model, each individual's decision problem can be reduced to choosing consumption $c_{s,t}$ and labor supply $n_{s,t}$ each period. In this section, we will focus only on solving the equations that characterize the optimal labor supply decision. But Exercises ? and ? use the equations that characterize the optimal consumption decisions.
 
