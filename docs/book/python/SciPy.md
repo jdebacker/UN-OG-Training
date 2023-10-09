@@ -102,6 +102,26 @@ It is *not* widely recognized among researchers that even in systems of equation
 
 Because root finding in nonlinear systems can be so difficult, much research into the best methods has accumulated over the years. And the approaches to solving nonlinear systems can be an art as much as a science. This is also true of minimization problems discussed in the next section ({ref}`SecSciPyMin`). For this reason, the [`scipy.optimize.root`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root.html) module has many different solution algorithms you can use to find the solution to a nonlinear system of equations (e.g., `hybr`, `lm`, `linearmixing`).
 
+All of the root finder methods in [`scipy.optimize.root`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root.html) are iterative. They take an initial guess for the solution for the variable vector $x_i$, evaluate the functions $f(x_i)$ in {eq}`EqSciPy_ZeroFuncErr` at $x_i$, and guess a new value for the solution vector $x_{i+1}$ until the errors on the left-hand-side of the functions in {eq}`EqSciPy_ZeroFuncErr` get arbitrarily close to zero.
+```{math}
+  :label: EqSciPy_ZeroFuncErr
+  \hat{x} = x:\quad
+    \begin{bmatrix}
+      f_1(x) \\
+      f_2(x) \\
+      \vdots \\
+      f_R(x) \\
+    \end{bmatrix} =
+    \begin{bmatrix}
+      \varepsilon_1 \\
+      \varepsilon_2 \\
+      \vdots \\
+      \varepsilon_R
+    \end{bmatrix} \quad\text{and}\quad
+    || \left[\varepsilon_1, \varepsilon_2,...\varepsilon_R\right] || \leq \text{toler}
+```
+
+
 Before we go through some root finding examples using [`scipy.optimize.root`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root.html), we want to share some root finding wisdom in the following {prf:ref}`ObsSciPy_RootMinWisdom` that we have learned over the years. The wisdom in this definition also applies to minimization problems discussed in the following section.
 
 ```{prf:observation} Root finding and minimization problem wisdom
@@ -191,10 +211,19 @@ Solution to two nonlinear functions in $x$ and $y$
 
 We can now use SciPy's root finder [`scipy.optimize.root`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root.html) to find the solution to equations {eq}`EqSciPyRootEx1a` and {eq}`EqSciPyRootEx1b`.
 
-Note first some properties of the theory or the functions in the system of equations. Although equation {eq}`EqSciPyRootEx1a` is defined for any $x$ in the real line $x\in(-\infty,\infty)$, it is only defined for $y$ weakly greater than one $y\geq 1$. However, the right-hand-side of {eq}`EqSciPyRootEx1a` is defined for any values of $x$ and $y$ on the real line. Similarly, equation {eq}`EqSciPyRootEx1b` is defined for any $x$ in the real line $x\in(-\infty,\infty)$, it is only defined for strictly positive $y>0$. But any values for $x$ and $y$ on the real line are defined for the right-hand-si
+Note first some properties of the theory or the functions in the system of equations. Although equation {eq}`EqSciPyRootEx1a` is defined for any $x$ in the real line $x\in(-\infty,\infty)$, it is only defined for $y$ weakly greater than one $y\geq 1$. However, the left-hand-side of {eq}`EqSciPyRootEx1a` is defined for any values of $x$ and $y$ on the real line. Similarly, equation {eq}`EqSciPyRootEx1b` is defined for any $x$ in the real line $x\in(-\infty,\infty)$, it is only defined for strictly positive $y>0$. But any values for $x$ and $y$ on the real line are defined for the left-hand-side of {eq}`EqSciPyRootEx1b`.
+
+The following Python code block executes a [`scipy.optimize.root`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root.html) root finder to find the solution to equations {eq}`EqSciPyRootEx1a` and {eq}`EqSciPyRootEx1b`. The key components to a Scipy root finder are
+* An error function (see `errfunc_SciPyRoot_examp1` function below) that takes an arbitrary vector of input variable values $x$ and outputs the corresponding right-hand-side errors associated with that vector as shown in the right-hand-side of {eq}`EqSciPy_ZeroFuncErr`.
+* An initial guess $x_{init}$ (see `init_guess_xy` list below) that does not violate any of the properties of the equations of the problem.
+
+The root finder algorithm then iterates on values of the $x$ vector starting at the initial guess $x_{init}$ that reduce the error values that are right-hand-side of {eq}`EqSciPy_ZeroFuncErr` which is the the output of `errfunc_SciPyRoot_examp1` function below.
 
 ```{code-cell} ipython3
 :tags: []
+
+import scipy.optimize as opt
+
 
 def f1_SciPyRoot_examp1(x, y):
     """
@@ -228,13 +257,25 @@ def errfunc_SciPyRoot_examp1(xy_list):
     errors_list = [error_func1, error_func2]
 
     return errors_list
+
+
+init_guess_xy = [0, 0]
+solution = opt.root(errfunc_SciPyRoot_examp1, init_guess_xy)
+
+print(solution)
+print("")
+print("The solution for (x, y) is:", solution.x)
+print("")
+print("The error values for eq1 and eq2 at the solution are:", solution.fun)
 ```
+
+As we saw in {numref}`Figure %s <FigScipyRoot_examp1>`, the solution is $(\hat{x},\hat{y})=(0.846, 2.331)$ and the zero functions are solved to $1e-12$ precision. {numref}`ExerScipy-root-lin` has you test the linear algebra solution to a system of linear equations to the SciPy root finder solution.
 
 
 (SecSciPyRoot_examp2)=
 #### OG-Core equations example
 
-In the `OG-Core` macroeconomic model, every age-$s$ individual in the model chooses how much to consume $c_{s,t}$, save $b_{s+1,t+1}$, and labor supply $n_{s,t}$ each period $t$.[^OG-Core-Indiv] In this model, each individual's decision problem can be reduced to choosing consumption $c_{s,t}$ and labor supply $n_{s,t}$ each period. In this section, we will focus only on solving the equations that characterize the optimal labor supply decision. But Exercises ? and ? use the equations that characterize the optimal consumption decisions.
+In the `OG-Core` macroeconomic model, every age-$s$ individual in the model chooses how much to consume $c_{s,t}$, save $b_{s+1,t+1}$, and work $n_{s,t}$ in each period $t$.[^OG-Core-Indiv] In this model, each individual's decision problem can be reduced to choosing consumption $c_{s,t}$ and labor supply $n_{s,t}$ each period. In {numref}`ExerScipy-root_labor` and {numref}`ExerScipy-root_save`, you will use SciPy's root finder to solve for optimal labor supply decisions for three different households and optimal consumption decisions over the lifetime of a household, respectively.
 
 
 (SecSciPyMin)=
@@ -255,40 +296,89 @@ In the `OG-Core` macroeconomic model, every age-$s$ individual in the model choo
 Define an exactly identified linear system of three equations and three unknown variables $R=R^*=3=K$.
 \begin{equation*}
   \begin{split}
-    ?x_1 + ?x_2 + ?x_3 = ? \\
-    ?x_1 + ?x_2 + ?x_3 = ? \\
-    ?x_1 + ?x_2 + ?x_3 = ?
+    3x_1 +  x_2 - 9x_3 &= 0.0 \\
+    -4x_1 + 6x_2 + 2x_3 &= 0.5 \\
+    5x_1 - 8x_2 + 7x_3 &= -2.5
   \end{split}
 \end{equation*}
 or
 \begin{equation*}
   \begin{bmatrix}
-    ? & ? & ? \\
-    ? & ? & ? \\
-    ? & ? & ? \\
+    3 & 1 & -9 \\
+    -4 & 6 & 2 \\
+    5 & -8 & 7 \\
   \end{bmatrix}
   \begin{bmatrix}
     x_1 \\ x_2 \\ x_3
   \end{bmatrix} =
   \begin{bmatrix}
-    ? \\ ? \\ ?
+    0.0 \\ 0.5 \\ -2.5
   \end{bmatrix}
 \end{equation*}
-Use linear algebra matrix inversion to solve for the solution $\hat{x}\equiv[\hat{x}_1,\hat{x}_2,\hat{x}_3]^T$ to the equation (i.e., $\hat{x} = A^{-1}b$). Next, use `scipy.optimize.root` to solve for the same solution. Verify that both sets of answers are close to the nearest $1e-5$.
-```{exercise-end}
-```
-
-```{exercise-start}
-:label: ExerScipy-root_save
-```
-Define household FOC for savings and use `scipy.optimize.root` to solve for the optimal savings rate for a household with CRRA utility
+Use linear algebra matrix inversion to solve for the solution $\hat{x}\equiv[\hat{x}_1,\hat{x}_2,\hat{x}_3]^T$ to the equation (i.e., $\hat{x} = A^{-1}b$). Next, use `scipy.optimize.root` to solve for the same solution. Verify that both sets of answers are close to the nearest $1e-8$.
 ```{exercise-end}
 ```
 
 ```{exercise-start}
 :label: ExerScipy-root_labor
+:class: green
 ```
-Define the household FOC for labor supply and use `scipy.optimize.root` to solve for the optimal labor supply for a household with ellipitcal utility
+In a three-period-lived agent overlapping generations model, let $s=\{1,2,3\}$ represent the age of an individual. In every period, a young agent $s=1$, a middle-aged agent $s=2$, and an old agent $s=3$ exist in the economy together. The consumption-labor Euler equation for each age-$s$ agent represents the optimal labor supply decision $n_s$ that balances benefit of extra consumption from labor income with the disutility of working, given the consumption amount $c_s$ and the current wage $w$.[^EvansPhillips]
+\begin{equation*}
+  \frac{w}{c_s} = (n_s)^\frac{1}{2}\left[1 - (n_s)^\frac{3}{2}\right]^{-\frac{1}{3}} \quad\text{for}\quad s=1,2,3
+\end{equation*}
+
+Let the wage be one $w=1$ and let the consumption of each aged individual be $[c_1,c_2,c_3]=[1.0, 2.0, 1.5]$. The system of three equations and three unknowns $[n_1,n_2,n_3]$ is therefore the following.
+\begin{equation*}
+  \begin{split}
+    1 &= (n_1)^\frac{1}{2}\left[1 - (n_1)^\frac{3}{2}\right]^{-\frac{1}{3}} \\
+    \frac{1}{2} &= (n_2)^\frac{1}{2}\left[1 - (n_2)^\frac{3}{2}\right]^{-\frac{1}{3}} \\
+    \frac{1}{1.5} &= (n_3)^\frac{1}{2}\left[1 - (n_3)^\frac{3}{2}\right]^{-\frac{1}{3}}
+  \end{split}
+\end{equation*}
+Use SciPy's root finder to solve for each age agent's optimal labor supply decision $[\hat{n}_1,\hat{n}_2,\hat{n}_3]$. Each equation is independently identified in that each function $f_s(n_s)$ is only a function of one variable. But solve for all three variables simultaneously.
+```{exercise-end}
+```
+
+```{exercise-start}
+:label: ExerScipy-root_save
+:class: green
+```
+In a four-period-lived agent overlapping generations model, let $s=\{1,2,3,4\}$ represent the age of an individual. Assume that labor supply over the lifetime of an individual is exogenously supplied. Let $n_s$ be the amount of labor supplied by the age-$s$ individual in any period $t$. Then assume the lifetime labor supply of an individual is exogenously $(n_1,n_2,n_3,n_4)=(0.3, 0.5, 0.6, 0.2)$. The consumption-savings Euler equation for each age-$s$ agent represents the optimal savings decision $b_{s+1,t+1}$ that balances benefit of consumption in the current period $c_t$ with discounted consumption in the next period $c_{t+1}$, given preference parameter values and exogenous labor supply $n_s$.
+\begin{equation*}
+  \begin{split}
+    &(c_{s,t})^{-1.5} = \beta\left(1 + r_{t+1}\right)(c_{s+1,t+1})^{-1.5} \quad\text{for}\quad s=1,2,3 \\
+    \text{where}\quad &c_{s,t} = w_t n_s + (1 + r_t)b_{s,t} - b_{s+1,t+1} \quad\text{and}\quad b_{1,t}, b_{5,t}=0
+  \end{split}
+\end{equation*}
+If we plug the budget constraint from the second line of the equation above into each of the Euler equations in the first line, and assume $\beta = 0.8$, constant wages $w_t=1$ for all $t$, constant interest rates $r_t=0.1$ for all $t$, and exogenous labor supply over the lifetime is $(n_1,n_2,n_3,n_4)=(0.3, 0.5, 0.6, 0.2)$, we get a system of three Euler equations in three unknown optimal savings amounts $(b_{2,t+1}, b_{3,t+2}, b_{4,t+3})$ over the lifetime of the individual.
+\begin{equation*}
+  \begin{split}
+    \left[n_1 - b_{2,t+1}\right]^{-1.5} &= 0.8(1.1)\left[n_2 + 1.1b_{2,t+1} - b_{3,t+2}\right]^{-1.5} \\
+    \left[n_2 + 1.1b_{2,t+1} - b_{3,t+2}\right]^{-1.5} &= 0.8(1.1)\left[n_3 + 1.1b_{3,t+2} - b_{4,t+3}\right]^{-1.5} \\
+    \left[n_3 + 1.1b_{3,t+2} - b_{4,t+3}\right]^{-1.5} &= 0.8(1.1)\left[n_4 + 1.1b_{4,t+3}\right]^{-1.5}
+  \end{split}
+\end{equation*}
+Use SciPy's root finder to solve for the three optimal lifetime savings amounts $(\hat{b}_{2,t+1},\hat{b}_{3,t+2},\hat{b}_{4,t+3})$. Plug those values back into the budget constraint $c_{s,t}= w_t n_s + (1 + r_t)b_{s,t} - b_{s+1,t+1}$ given $b_{1,t}, b_{5,t}=0$ to solve for optimal consumption values $(\hat{c}_{1,t},\hat{c}_{2,t+1},\hat{c}_{3,t+2}, \hat{c}_{4,t+3})$.
+```{exercise-end}
+```
+
+```{exercise-start}
+:label: ExerScipy-BM72_ss
+:class: green
+```
+{cite}`BrockMirman:1972` is a simple two-period-lived overlapping generations model, the stochastic equilibrium of which is characterized by six dynamic equations (equations the variables of which are changing over time). The deterministic steady-state of the model is characterized by the variables reaching constant values that do not change over time. The deterministic steady state of the {cite}`BrockMirman:1972` is characterized by the following five equations and five unknown variables $(c, k, y, w, r)$,
+\begin{equation*}
+  \begin{split}
+    \frac{1}{c} &= \beta\frac{r}{c} \\
+    c &= (1+r)k + w \\
+    w &= (1-\alpha)k^\alpha \\
+    r &= \alpha k^{\alpha-1} \\
+    y &= k^\alpha
+  \end{split}
+\end{equation*}
+where $c$ is consumption, $k$ is capital investment/savings, $y$ is GDP, $w$ is the wage, and $r$ is the interest rate. Assume $\beta=0.7$ and $\apha=0.35$. Solve for the steady-state variables $(c, k, y, w, r)$ using the above five equations and SciPy's root finder.
+
 ```{exercise-end}
 ```
 
@@ -324,3 +414,5 @@ The footnotes from this chapter.
 [^SciPyJuddMethods]: See {cite}`Judd:1998` (Chap. 5) for a discussion of solution methods to nonlinear equations.
 
 [^OG-Core-Indiv]: See `OG-Core` model documentation theory chapter "[Households](https://pslmodels.github.io/OG-Core/content/theory/households.html)".
+
+[^EvansPhillips]: This Euler equation corresponds to a simple model in which the coefficient of relative risk aversion is unity $\sigma=1$ in a CRRA utility function and the disutility of labor supply is characterized by the functional form proposed in {cite}`EvansPhillips:2017`, with $b=1$, $\nu=1.5$, and maximum labor supply $l=1$.
