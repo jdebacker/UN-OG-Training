@@ -283,7 +283,7 @@ In the `OG-Core` macroeconomic model, every age-$s$ individual in the model choo
 
 Minimization problems are a more general type of problem than root finding problems. Any root finding problem can be reformulated as a minimization problem. But it is not the case that any minimization problem can be reformulated as a root finding problem. Furthermore, if a minimization problem can be reformulated as a root finding problem, it is often much faster to compute the root finding problem. But the minimization problem allows for more generality and often more robustness.
 
-{numref}`ExerSciPy-root-min` has you compute the solution to a problem using minimization and root finding, respectively, and to compare the corresponding computation times. One of our favorite books and resources on the mathematics behind minimization problems is {cite}`HumpherysJarvis:2020` (section IV. pp.519-760).
+{numref}`ExerSciPy-root-min` has you compute the solution to a problem using minimization and root finding, respectively, and to compare the corresponding computation times. One of our favorite books and resources on the mathematics behind minimization problems is {cite}`HumpherysJarvis:2020` (section IV, pp.519-760).
 
 
 (SecSciPyInterp)=
