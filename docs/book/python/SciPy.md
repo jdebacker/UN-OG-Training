@@ -367,7 +367,7 @@ Use SciPy's root finder to solve for the three optimal lifetime savings amounts 
 :label: ExerScipy-BM72_ss
 :class: green
 ```
-{cite}`BrockMirman:1972` is a simple two-period-lived overlapping generations model, the stochastic equilibrium of which is characterized by six dynamic equations (equations the variables of which are changing over time). The deterministic steady-state of the model is characterized by the variables reaching constant values that do not change over time. The deterministic steady state of the {cite}`BrockMirman:1972` is characterized by the following five equations and five unknown variables $(c, k, y, w, r)$,
+{cite}`BrockMirman:1972` is a simple two-period-lived overlapping generations model, the stochastic equilibrium of which is characterized by six dynamic equations (equations in which the variables are changing over time). The deterministic steady-state of the model is characterized by the variables reaching constant values that do not change over time. The deterministic steady state of the {cite}`BrockMirman:1972` is characterized by the following five equations and five unknown variables $(c, k, y, w, r)$,
 \begin{equation*}
   \begin{split}
     \frac{1}{c} &= \beta\frac{r}{c} \\
@@ -377,7 +377,7 @@ Use SciPy's root finder to solve for the three optimal lifetime savings amounts 
     y &= k^\alpha
   \end{split}
 \end{equation*}
-where $c$ is consumption, $k$ is capital investment/savings, $y$ is GDP, $w$ is the wage, and $r$ is the interest rate. Assume $\beta=0.7$ and $\apha=0.35$. Solve for the steady-state variables $(c, k, y, w, r)$ using the above five equations and SciPy's root finder.
+where $c$ is consumption, $k$ is capital investment/savings, $y$ is GDP, $w$ is the wage, and $r$ is the interest rate. Assume $\beta=0.7$ and $\alpha=0.35$. Solve for the steady-state variables $(c, k, y, w, r)$ using the above five equations and SciPy's root finder.
 
 ```{exercise-end}
 ```
