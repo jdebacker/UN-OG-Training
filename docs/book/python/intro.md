@@ -3,7 +3,7 @@
 
 The `OG-Core` model, as well as the country-specific calibration packages, are written in the Python programming language. These training materials will provide you with sufficient background with Python and some of its most-used packages for data science that you will be able to understand and contribute to the source code underlying `OG-Core` and the calibration packages. We assume some basic background with mathematics, economics, and programming, but we do not assume any prior knowledge of Python.
 
-As we walk you through the basics of Python, we will leverage some excellent open source materials put together by [QuantEcon](https://quantecon.org/) and the [Applied and Computational Mathematics Emphasis at BYU (BYU ACME)](https://acme.byu.edu/). And while we will point you to their tutorials, we have customized all our excercises to be relevant to the `OG-Core` model and the calibration packages.
+As we walk you through the basics of Python, we will leverage some excellent open source materials put together by [QuantEcon](https://quantecon.org/) and the [Applied and Computational Mathematics Emphasis at BYU (BYU ACME)](https://acme.byu.edu/2023-2024-materials). And while we will point you to their tutorials, we have customized all our excercises to be relevant to the `OG-Core` model and the calibration packages.
 
 
 (SecPythonIntroOverview)=
@@ -45,22 +45,16 @@ Some extensions that we recommend installing into your VS Code:
 
 In addition, [GitHub Copilot](https://github.com/features/copilot) is an amazing resource and can be added as an extension to VS Code. However, this service is not free of charge and does require an internet connection to work.
 
+In the iframe below is a PDF of the BYU ACME open-access lab entitled, "Python Intro". You can either scroll through the lab on this page using the iframe window, or you can download the PDF for use on your computer. See {cite}`BYUACME_PythonIntro`. {numref}`ExerPythonIntro` below has you work through the problems in this BYU ACME lab. The Python code file ([`python_intro.py`](https://github.com/OpenRG/UN-OG-Training/tree/main/code/PythonIntro/python_intro.py)) used in the lab is stored in the [`./code/PythonIntro/`](https://github.com/OpenRG/UN-OG-Training/tree/main/code/PythonIntro) directory.
 
 <div>
   <iframe id="inlineFrameExample"
       title="Inline Frame Example"
       width="100%"
       height="700"
-      src="https://acme.byu.edu/00000181-448a-d778-a18f-dfcae22f0001/intro-to-python">
+      src="https://drive.google.com/file/d/1CHl8C-QKgs8jHzsRfJSMWkVqq0elzP1F/preview?usp=sharing">
   </iframe>
 </div>
-
-```{exercise-start}
-:label: ExerPythonIntro
-```
-Read the BYU ACME "[Introduction to Python](https://acme.byu.edu/00000181-448a-d778-a18f-dfcae22f0001/intro-to-python)" lab and complete Problems 1 through 8 in the lab. {cite}`BYUACME_PythonIntro`
-```{exercise-end}
-```
 
 We cover Python's built-in functions, constants, and data types and their properties in {numref}`ExerStandardLibrary` of the {ref}`Chap_StdLib` chapter. We also introduce different commonly used objects like Numpy arrays and operations in chapter {ref}`Chap_Numpy` and Pandas DataFrames and operations in chapter {ref}`Chap_Pandas`.
 
@@ -89,11 +83,41 @@ All of these will be included as part of your installation of Anaconda.  Anacond
 5. [Pandas](Pandas.md)
 6. [Matplotlib](Matplotlib.md)
 7. [SciPy](SciPy.md)
-8. [Doc strings and comments](DocStrings.md)
-9. [Unit testing in Python](UnitTesting.md)
+8. [Doc strings and documentation](DocStrings.md)
+9. [Unit testing](UnitTesting.md)
 
 
-<!-- (SecPythonIntroFootnotes)=
-## Footnotes -->
+(SecPythonIntroUnix)=
+## (Optional): Using the Unix Shell
 
-<!-- [^citation_note]: See {cite}`AuerbachEtAl:1981,AuerbachEtAl:1983`, {cite}`AuerbachKotlikoff:1983a,AuerbachKotlikoff:1983b,AuerbachKotlikoff:1983c`, and {cite}`AuerbachKotlikoff:1985`. -->
+Unix is an old operating system that is the basis for the Linux and Mac operating systems. Many Python users with Mac or Linux operating systems follow a workflow that includes working in the terminal and using Unix commands. This section is optional because Windows terminals do not have the same Unix commands. For those interested, feel free to work through the Unix lab below from BYU ACME. This lab features great examples and instruction, and also has seven good exercises for you to practice on.
+
+In the iframe below is a PDF of the BYU ACME open-access lab entitled, "Unix Shell 1: Introduction". You can either scroll through the lab on this page using the iframe window, or you can download the PDF for use on your computer. See {cite}`BYUACME_Unix1`. {numref}`ExerUnix1` below has you work through the problems in this BYU ACME lab. The shell script file ([`unixshell1.sh`](https://github.com/OpenRG/UN-OG-Training/tree/main/code/UnixShell1/unixshell1.sh)) used in the lab, along with the associated zip file ([`Shell1.zip`](https://github.com/OpenRG/UN-OG-Training/tree/main/code/UnixShell1/Shell1.zip)), are stored in the [`./code/UnixShell1/`](https://github.com/OpenRG/UN-OG-Training/tree/main/code/UnixShell1) directory.
+
+<div>
+  <iframe id="inlineFrameExample"
+      title="Inline Frame Example"
+      width="100%"
+      height="700"
+      src="https://drive.google.com/file/d/18eTLp_FhWFYgAItIZnX6gesIvg91rXW5/preview?usp=sharing">
+  </iframe>
+</div>
+
+(SecPythonIntroExercises)=
+## Exercises
+
+```{exercise-start} Python introduction
+:label: ExerPythonIntro
+:class: green
+```
+Read the BYU ACME "[Introduction to Python](https://drive.google.com/file/d/1CHl8C-QKgs8jHzsRfJSMWkVqq0elzP1F/view?usp=sharing)" lab and complete Problems 1 through 8 in the lab. {cite}`BYUACME_PythonIntro`
+```{exercise-end}
+```
+
+```{exercise-start} OPTIONAL: Unix shell commands
+:label: ExerUnix1
+:class: green
+```
+Read the BYU ACME "[Unix Shell 1: Introduction](https://drive.google.com/file/d/18eTLp_FhWFYgAItIZnX6gesIvg91rXW5/view?usp=sharing)" lab and complete Problems 1 through 7 in the lab. {cite}`BYUACME_Unix1`
+```{exercise-end}
+```
