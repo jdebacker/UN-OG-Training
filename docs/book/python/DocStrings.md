@@ -15,6 +15,8 @@ Good documentation is critical to the ability of yourself and others to understa
 
 Python scripts allow for two types of comments: inline comments (which are usually a line or two at a time) and docstrings, which are longer blocks set aside to document the source code. We further explore other more extensive types of documentation inclding README files, Jupyter notebooks, cloud notebooks, Jupyter Books, and published documentation forms.
 
+A good resource is the RealPython tutorial entitled, "[Documenting Python Code: A Complete Guide](https://realpython.com/documenting-python-code/)" {cite}`Mertz:2023`.
+
 
 (SecDoc_comments)=
 ## Inline comments
