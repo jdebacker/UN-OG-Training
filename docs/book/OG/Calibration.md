@@ -201,28 +201,38 @@ Finally, we need to calibrate the initial government debt to GDP ratio, `initial
 ```{exercise-start}
 :label: ExerCalib-macro_datareader
 ```
-Use pandas datareader to get GDP series from South Africe from FRED
+The [Federal Reserve Economic Database](https://fred.stlouisfed.org) (FRED) contains macroeconomic data for a number of countries and a user friendly interface.  In addition, tools, such as [`pandas-datareader`](https://pandas-datareader.readthedocs.io) make it extremely easy to access the FRED API.  In this exercise, use `pandas-datareader` to download the quarterly, real GDP time series for South Africa from FRED.  Plot it.
 ```{exercise-end}
 ```
 
 ```{exercise-start}
 :label: ExerCalib-macro_freq
 ```
-Collapse quarterly data to make annual
+Now, use the [`datetime`](https://docs.python.org/3/library/datetime.html#datetime-objects) object functions to collapse the quarterly GDP data to annual data.  Plot it.
 ```{exercise-end}
 ```
+
 
 ```{exercise-start}
 :label: ExerCalib-macro_gy
 ```
-Compute average growth rate
+With your annual data, compute the annual growth rate for each year.  Plot the time series of growth rates.
 ```{exercise-end}
 ```
 
 ```{exercise-start}
 :label: ExerCalib-macro_reg
 ```
-Estimate a regression model (e.g., with bond market data)
+Now let's estimate the autocorrelation in GDP growth, assuming is a first order auto-regressive process (AR1).  We'll do this with the `statsmodles.OLS` function.
+
+First, create a new column in your data frame that is the lagged value of GDP growth.  Then, use the [`statsmodels.regression.linear_model.OLS`](https://www.statsmodels.org/dev/generated/statsmodels.regression.linear_model.OLS.html) function to estimate the following equation:
+
+```{math}
+y_{t} = \alpha  + \rho y_{t-1} + \varepsilon_{t}
+```
+
+What did you estimate as $\alpha$?  What does this represent?  How persistent is the growth process in South Africa?
+
 ```{exercise-end}
 ```
 
@@ -253,14 +263,23 @@ To approximate the earnings processes in a country of interest, we recommend sta
 ```{exercise-start}
 :label: ExerCalib-earn_plot
 ```
-Use `income.py` from OG-USA to retrieve e matrix.  Plot it.
+Use [`income.py` from `OG-USA`](https://github.com/PSLmodels/OG-USA/blob/master/ogusa/income.py) to retrieve the earnings process matrix.  Read through the docstrings of each function to see which to use.  With the `e` matrix that is returned, create a line plot of the earnings at each age for the `J` different types.
 ```{exercise-end}
 ```
 
 ```{exercise-start}
 :label: ExerCalib-earn_approx
 ```
-1. Do approximation method of Marcelo to match a specific gini coefficient
+Now we're going to adjust the above earnings process to match the Gini coefficient in a country that isn't the U.S. (note that the Gini coefficient for income in the U.S. was 41.5 in 2019). The transformation we'll make is:
+
+```{math}
+e_{C} = e_{USA} e^{a * e_{USA}}
+```
+
+where $C4 represents the country of interest. We will find $a$ by matching the Gini coefficient in the country of interest.  To do this, we'll use the `scipy.optimize` module.  First, create a function that takes $a$ as an argument and returns the Gini coefficient in the country of interest (hint: the [`ogusa.utils.Inequality`](https://github.com/PSLmodels/OG-Core/blob/9d7c814bafd210a581ffebf7df6f357aa5b2a048/ogcore/utils.py#L463) class object will be helpful here).  Then, use the `scipy.optimize.minimize_scalar` function to find the value of $a$ that minimizes the difference between the Gini coefficient in the country of interest and the Gini coefficient in the U.S.  Finally, use the value of $a$ you found to transform the `e` matrix from the U.S. to the country of interest.  Plot the earnings processes in the U.S. and the country of interest.  How do they differ?
+```{exercise-end}
+```
+
 ```{exercise-end}
 ```
 
