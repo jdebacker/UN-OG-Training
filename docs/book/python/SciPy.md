@@ -281,6 +281,8 @@ In the `OG-Core` macroeconomic model, every age-$s$ individual in the model choo
 (SecSciPyMin)=
 ## Minimization
 
+Minimization problems are a more general type of problem than root finding problems. Any root finding problem can be reformulated as a minimization problem. But it is not the case that any minimization problem can be reformulated as a root finding problem. Furthermore, if a minimization problem can be reformulated as a root finding problem, it is often much faster to compute the root finding problem. But the minimization problem allows for more generality and often more robustness. {numref}`ExerSciPy-root-min` has you compute the solution to a problem using minimization and root finding, respectively, and to compare the corresponding computation times.
+
 
 (SecSciPyInterp)=
 ## Interpolation
@@ -379,6 +381,14 @@ Use SciPy's root finder to solve for the three optimal lifetime savings amounts 
 \end{equation*}
 where $c$ is consumption, $k$ is capital investment/savings, $y$ is GDP, $w$ is the wage, and $r$ is the interest rate. Assume $\beta=0.7$ and $\alpha=0.35$. Solve for the steady-state variables $(c, k, y, w, r)$ using the above five equations and SciPy's root finder.
 
+```{exercise-end}
+```
+
+```{exercise-start} Root finder vs. minimizer
+:label: ExerScipy-root-min
+:class: green
+```
+Characterize a minimization problem that can also be solved using a root finder. Write code to solve the problem both ways. Record the respective computation times of both solution methods. How does the minimization method computation time compare to the root finder computation time?
 ```{exercise-end}
 ```
 
