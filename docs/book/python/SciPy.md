@@ -395,13 +395,6 @@ Characterize a minimization problem that can also be solved using a root finder.
 ```
 
 ```{exercise-start}
-:label: ExerScipy-min
-```
-Use `scipy.optimize.minimize` to minimize the function $f(x) = x^2 + 2x + 1$ (or some other function).
-```{exercise-end}
-```
-
-```{exercise-start}
 :label: ExerScipy-min_constraint
 ```
 Use `scipy.optimize.minimize` to minimize the function $f(x) = x^2 + 2x + 1$ (or some other function) subject to the constraint that $x \geq 2$.
