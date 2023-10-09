@@ -9,24 +9,24 @@ In this chapter, we describe the process of creating a country-specific calibrat
 (SecDemographics)=
 # Demographics
 
-A key feature of OG models is the ability to model the impacts of economic shocks or policy changes across generations. Because they capture generations of finitely-lived agents, OG models can be made to reflect realistic demographics.  Demographic trends are of massive importance to economic trends [TODO: add CITATIONS here]. Furthermore, there is a tremendous amount of variation in demographic trends across countries.  Consider Figure \ref{fig:pop_growth}, which shows the population distributions, and their evolution over time, for three countries: South Africa, India, and the United States. In each figure, we plot the 2023 population distribution (according to data from the [UN World Population Prospects](https://population.un.org/wpp/)) and then the evolution of the population as we age it forward two, 40, and 80 years and then to it's steady state distribution using the `demographics.py` module from the relevant country calibration (i.e., `OG-ZAF`, `OG-IND`, `OG-USA`). Comparing the 2023 distributions first, we see that South African distribution has humps, which reflect the initial wave of the HIV epidemic and then it's echo on the next generation.  We see also that India has more young adults than the two other countries, but displays a relatively flat gradient as the number of individuals decline quickly with age, reflecting relatively high mortality rates in that country.  The United States has a more right skewed distribution than South Africa and India, with more individuals of advanced age, reflecting relatively low mortality rates for adults. As each population is simulated forward in time, we see the age distribution move to the right, with older individuals representing a larger share of the population in each country.  After about 40 years, these populations are very close to their steady-state. Since older individuals make significantly different labor supply and savings decisions than young individuals, these evolutions of the population will have profound effects on wages, interest rates, and economic growth.
+A key feature of OG models is the ability to model the impacts of economic shocks or policy changes across generations. Because they capture generations of finitely-lived agents, OG models can be made to reflect realistic demographics.  Demographic trends are of massive importance to economic trends [TODO: add CITATIONS here]. Furthermore, there is a tremendous amount of variation in demographic trends across countries.  Consider Figure {ref}{TODO: create and reference 3 panel figure}, which shows the population distributions, and their evolution over time, for three countries: South Africa, India, and the United States. In each figure, we plot the 2023 population distribution (according to data from the [UN World Population Prospects](https://population.un.org/wpp/)) and then the evolution of the population as we age it forward two, 40, and 80 years and then to it's steady state distribution using the `demographics.py` module from the relevant country calibration (i.e., `OG-ZAF`, `OG-IND`, `OG-USA`). Comparing the 2023 distributions first, we see that South African distribution has humps, which reflect the initial wave of the HIV epidemic and then it's echo on the next generation.  We see also that India has more young adults than the two other countries, but displays a relatively flat gradient as the number of individuals decline quickly with age, reflecting relatively high mortality rates in that country.  The United States has a more right skewed distribution than South Africa and India, with more individuals of advanced age, reflecting relatively low mortality rates for adults. As each population is simulated forward in time, we see the age distribution move to the right, with older individuals representing a larger share of the population in each country.  After about 40 years, these populations are very close to their steady-state. Since older individuals make significantly different labor supply and savings decisions than young individuals, these evolutions of the population will have profound effects on wages, interest rates, and economic growth.
 
 
 TODO: HOW TO MAKE ONE FIGURE WITH 3 PANELS?
 :::{figure-md} zaf_pop_fig
-<img src="./images/ZAF_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
+<img src="./images/ZAF_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="80%">
 
 South Africa
 :::
 
 :::{figure-md} ind_pop_fig
-<img src="./images/IND_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
+<img src="./images/IND_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="80%">
 
 India
 :::
 
 :::{figure-md} usa_pop_fig
-<img src="./images/USA_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
+<img src="./images/USA_pop_distribution.png" alt="ZAF_demog" class="bg-primary mb-1" width="80%">
 
 United States
 :::
@@ -55,10 +55,10 @@ Sub-caption 2
 
 ````
 
-Figure \ref{TODO: add reference to 3 panel figure} plots population growth rates over time for the three countries illustrated above.  The growth rates are determined by the same mortality, fertility, and immigration trends that drive the evolution of the population in Figure \ref{}. In terms of population growth, we see that in all countries the population growth rate is declining in each of the three counties over the next 60 years.  This is consistent with what we saw in the evolution of the population distribution in the three countries above: each economy is aging and with relatively more older individuals, total fertility will be declining.  Looking at the level of population growth in the long run in Figure \ref{figure-md}, we see that India and the United States will have negative population growth, which will put downward pressure on their long run economic growth rates.  In contract, South Africa will have positive population growth, owing to it's relatively high fertility rates, which will contribute positively to that economy in the long run.
+Figure {ref}{TODO: add reference to 3 panel figure} plots population growth rates over time for the three countries illustrated above.  The growth rates are determined by the same mortality, fertility, and immigration trends that drive the evolution of the population in Figure {ref}{TODO: create and reference 3 panel figure}. In terms of population growth, we see that in all countries the population growth rate is declining in each of the three counties over the next 60 years.  This is consistent with what we saw in the evolution of the population distribution in the three countries above: each economy is aging and with relatively more older individuals, total fertility will be declining.  Looking at the level of population growth in the long run in Figure {ref}`pop_growth_rates_fig`, we see that India and the United States will have negative population growth, which will put downward pressure on their long run economic growth rates.  In contract, South Africa will have positive population growth, owing to it's relatively high fertility rates, which will contribute positively to that economy in the long run.
 
-:::{figure-md} markdown-fig
-<img src="./images/pop_growth_rates.png" alt="ZAF_demog" class="bg-primary mb-1" width="200px">
+:::{figure-md} pop_growth_rates_fig
+<img src="./images/pop_growth_rates.png" alt="ZAF_demog" class="bg-primary mb-1" width="80%">
 
 Population Growth Rates in South Africa, India, and the United States
 :::
@@ -235,17 +235,17 @@ Other??
 
 # Earnings Processes
 
-An important component of the `OG-Core` model are the household earnings processes.  These help to match real difference across age and households in earnings ability and are a key set of parameters to model income inequality. Household earnings are endogenous and depend on the households' decisions to work and save given the state of the economy and household preferences and ability.  What is exogenous to the model are how productive households are with each unit of labor they supply, i.e., their earnings ability.  `OG-Core` assumes that there are `J` groups of households with different earnings abilities.  Within each group, the earnings ability process is deterministic and known to the household, although labor productivity of these workers vary over their working life.  Fore example, consider Figure \ref{`USA_earn`}, which shows the log of effective labor units for each of seven lifetime income groups, estimated in the United States.  Each group is defined by their "potential" earnings over their lifetime (i.e., if they worked full time, what would they earn over a 40 year career) and grouped by their percentile rank in the distribution of lifetime incomes. We can see that the top 1\% of lifetime earnings have higher productivity in each year of working life, but because productivity varies with age, this gap is not constant.  Rather, it's largest during the peak earnings year of middle age and then is quite small at older ages.
+An important component of the `OG-Core` model are the household earnings processes.  These help to match real difference across age and households in earnings ability and are a key set of parameters to model income inequality. Household earnings are endogenous and depend on the households' decisions to work and save given the state of the economy and household preferences and ability.  What is exogenous to the model are how productive households are with each unit of labor they supply, i.e., their earnings ability.  `OG-Core` assumes that there are `J` groups of households with different earnings abilities.  Within each group, the earnings ability process is deterministic and known to the household, although labor productivity of these workers vary over their working life.  Fore example, consider Figure {ref}`USA_earn`, which shows the log of effective labor units for each of seven lifetime income groups, estimated in the United States.  Each group is defined by their "potential" earnings over their lifetime (i.e., if they worked full time, what would they earn over a 40 year career) and grouped by their percentile rank in the distribution of lifetime incomes. We can see that the top 1\% of lifetime earnings have higher productivity in each year of working life, but because productivity varies with age, this gap is not constant.  Rather, it's largest during the peak earnings year of middle age and then is quite small at older ages.
 
-:::{figure-md} markdown-fig
-<img src="./images/USA_ability_profiles.png" alt="USA_earn" class="bg-primary mb-1" width="200px">
+:::{figure-md} USA_earn
+<img src="./images/USA_ability_profiles.png" alt="USA_earn" class="bg-primary mb-1" width="80%">
 
 Log Effective Labor Units by Lifetime Income Group, Estimated in the United States
 :::
 
 In `OG-Core`, these earnings processes are described by `SxJ` matrix, with each cell representing the effective labor units for a given age and lifetime income group.  Note that this matrix is normalized such that the average value of earnings ability is one.  It is assumed that these processes remain constant over time, so despite growth in the level of productivity through the exogenous technological growth,
 
-To estimate the earnings processes in Figure \ref{USA_earn}, we used administrative data from tax returns the covered a panel of US taxpayers over four decades.  A detailed description of this process is given in the [`OG-USA` documentation](https://pslmodels.github.io/OG-USA/content/calibration/earnings.html). Suffice it to say, this estimation process is quite involved and requires a large panel dataset in individual or household earnings, ideally without censoring the top end. In many contexts, these data may not be available.  We therefore will describe here an approximation technique that is less data intensive, and leave the more involved estimation process for the interested reader to explore in the `OG-USA` documentation.
+To estimate the earnings processes in Figure {ref}`USA_earn`, we used administrative data from tax returns the covered a panel of US taxpayers over four decades.  A detailed description of this process is given in the [`OG-USA` documentation](https://pslmodels.github.io/OG-USA/content/calibration/earnings.html). Suffice it to say, this estimation process is quite involved and requires a large panel dataset in individual or household earnings, ideally without censoring the top end. In many contexts, these data may not be available.  We therefore will describe here an approximation technique that is less data intensive, and leave the more involved estimation process for the interested reader to explore in the `OG-USA` documentation.
 
 To approximate the earnings processes in a country of interest, we recommend starting with the `OG-USA` calibration and then applying a transformation to these earnings processes to match the distribution of income in the target country.[^e_mat_zaf_note].  Specifically, one will find mean earnings by age for the target country... TODO: getcode to link to in OG-ZAF from Marcelo *or* just reference the methods in OG-IND/MYS.
 
@@ -268,5 +268,5 @@ Use `income.py` from OG-USA to retrieve e matrix.  Plot it.
 (SecOGCalibrationFootnotes)=
 ## Footnotes
 
-[^stationary_note]For specifics on how this is done, please see the `OG-Core` [Stationarization Chapter](https://pslmodels.github.io/OG-Core/content/theory/stationarization.html).
-[^e_mat_zaf_note] For a discussion with the original application of this method from Marcelo LaFluer see the `OG-ZAF` repo's [Pull Request #28](https://github.com/EAPD-DRB/OG-ZAF/pull/28).
+[^stationary_note]: For specifics on how this is done, please see the `OG-Core` [Stationarization Chapter](https://pslmodels.github.io/OG-Core/content/theory/stationarization.html).
+[^e_mat_zaf_note]:  For a discussion with the original application of this method from Marcelo LaFluer see the `OG-ZAF` repo's [Pull Request #28](https://github.com/EAPD-DRB/OG-ZAF/pull/28).
