@@ -93,7 +93,7 @@ Let's do the same for mortality rates.  In this case, you will want interact wit
 ```{exercise-start}
 :label: ExerCalib-demo_pop_dist
 ```
-The `demographics.py` module uses current fertility and mortality rates (and the implied immigration rates) to project the population forward.  This ensures a population distribution in each year of the model that is consistent with the fertility, mortality, and immigration rates.  Use the `demographics.get_pop_objs` function to return a dictionary with the population object that are inputs to calibrating `OG-Core`.  From this dictionary, extract the population distribution object (the key for this is `omega` and it is an array with shape `TxS`, where `T` are the number of time periods and `S` is the number of age groups in the model).  Create a line plot of the population distribution in the first year, the 20th year, the 100th year, and the last year in the `omega` object.  Describe what you see happening to the distribution of people across age as you more forward in time?
+The `demographics.py` module uses current fertility and mortality rates (and the implied immigration rates) to project the population forward.  This ensures a population distribution in each year of the model that is consistent with the fertility, mortality, and immigration rates.  Use the `demographics.get_pop_objs` function to return a dictionary with the population object that are inputs to calibrating `OG-Core` (Use `E=20`, `S=80`, `T=320`, `curr_year=2023`).  From this dictionary, extract the population distribution object (the key for this is `omega` and it is an array with shape `TxS`, where `T` are the number of time periods and `S` is the number of age groups in the model).  Create a line plot of the population distribution in the first year, the 20th year, the 100th year, and the last year in the `omega` object.  Describe what you see happening to the distribution of people across age as you more forward in time?
 ```{exercise-end}
 ```
 
@@ -107,7 +107,33 @@ Also in the dictionary returned from `demographics.get_pop_objs`, is the populat
 ```{exercise-start}
 :label: ExerCalib-demo_sims
 ```
-Get pop objects and sim model SS with OG-Core defaults then your new pop objects.  Compare SS macro vars using `ogcore.output_tables.macro_table_SS`.
+Now that you've visualized the different demographic trends in the country you've chosen, let's see how these affect the equilibrium in the OG model.  This will combine what you learned in {ref}`Chap_OGsimulation` with what you've learned here about population demographics objects for the model. You'll proceed with the following steps:
+
+1. Instantiate a `Specifications` class object from `OG-Core` with:
+```python
+  p = Specifications(
+        baseline=True,
+        baseline_dir=base_dir,
+        output_base=base_dir,
+    )
+```
+where you set the directory you'd like this output saved with a string `base_dir`.
+2. Use the `ogcore.execute.runner()` function to solve for the steady state of the model.
+3. Now, create a new Specifcations object with:
+```python
+  p2 = Specifications(
+        baseline=True,
+        baseline_dir=base_dir,
+        output_base=base_dir,
+    )
+```
+where you set the directory you'd like the output from this second model run saved with a string `reform_dir`.
+4. Use the demographics module you edited above to return the a dictoinary of population objects from `demographics.get_pop_objs`.  Use these to update the `p2` object:
+```python
+p2.update_specifications(pop_obs_dict)
+```
+5. Use `ogcore.execute.runner()` to solve the model again, this time with the parameters in `p2`.
+6. Finaly, comparet the differences in the steady-state macroeconomics variablkes using `ogcore.output_tables.macro_table_SS`.  What do you see?  How did demographics affect aggregate output?  Wages?  Interest rates?  Do you have intuition about why this happened?
 ```{exercise-end}
 ```
 
@@ -137,7 +163,7 @@ Finally, we need to map the $M$ output goods to the $I$ consumption goods.  The 
 
 ## International finance
 
-The `OG-Core` model parameterizes the degree of economic openness with two parameters relating to international capital flows.  The first is the fraction of new government debt issues which are purchased by foreign investors, `zeta_D`.  This parameter can be calibrated through financial accounts data that shows the location of buyers of government debt.  The second parameter reflects the amount of excess capital demand that is satisfied by foreign investors.  Here, excess demand is defined as the difference between the captial demand of firms at the interest rate outside the domestic economy (i.e., the world interest rate) and the capital of demand from firms if they face teh doemstic interest rate.  The  parameter `zeta_D` takes a value between zero and one and is the share of this excess demand for capital that foreign investors make up.  A value of zero would represent a closed economy, which no foreign investment in domestic capital. While a value of one represented a small open economy, where the domestic interest rate is equated to the world interest rate since capital flows in (or out) freely.  One cannot look just at financial accounts data to calibrate `zeta_D` , because the excess demand concept is model based and there's not a direct analog in the data.  Rather, we have utilized an approach of moving the value of `zeta_D` up or down based on the size of the economy relative to the world, with countries that have a smaller share of world financial market activity having a `zeta_D` closer to one. Of course, one would also like to consider any capital controls that may be in place in the economy of interest.  If there are capital controls, then the value of `zeta_D` should be set to a smaller value.
+The `OG-Core` model parameterizes the degree of economic openness with two parameters relating to international capital flows.  The first is the fraction of new government debt issues which are purchased by foreign investors, `zeta_D`.  This parameter can be calibrated through financial accounts data that shows the location of buyers of government debt.  The second parameter reflects the amount of excess capital demand that is satisfied by foreign investors.  Here, excess demand is defined as the difference between the capital demand of firms at the interest rate outside the domestic economy (i.e., the world interest rate) and the capital of demand from firms if they face teh domestic interest rate.  The  parameter `zeta_D` takes a value between zero and one and is the share of this excess demand for capital that foreign investors make up.  A value of zero would represent a closed economy, which no foreign investment in domestic capital. While a value of one represented a small open economy, where the domestic interest rate is equated to the world interest rate since capital flows in (or out) freely.  One cannot look just at financial accounts data to calibrate `zeta_D` , because the excess demand concept is model based and there's not a direct analog in the data.  Rather, we have utilized an approach of moving the value of `zeta_D` up or down based on the size of the economy relative to the world, with countries that have a smaller share of world financial market activity having a `zeta_D` closer to one. Of course, one would also like to consider any capital controls that may be in place in the economy of interest.  If there are capital controls, then the value of `zeta_D` should be set to a smaller value.
 
 ## Fiscal policy
 
@@ -153,7 +179,7 @@ Governments in the `OG-Core` model may raise revenue through the taxation of per
 
 Government spending, at least that is modeled outside of the net tax functions or pension functions, is modeled as an exogenous fraction of GDP, with an exception in some parameterizations that we discuss below.  By calibrating spending as a fraction of GDP, on avoids any need to convert between model and data units and it also more accurately mimics the empirical fact that the size of governments tends to grow with the size of the economy.  There are three spending related parameters that are shares of GDP.  These are `alpha_G`, the ratio of government spending on public goods to GDP, `alpha_T`, the ratio of government spending on transfers to GPD, and `alpha_I`, the ratio of government spending on infrastructure to GDP.
 
-To calibrate these ratios, one can generally use national accounts data in combination with government budget reports.  The challenging piece to ensure that the defintion of spending in the data and the model are aligned.  For example, if you are explicitly modeling the pension system and using the net tax functions to capture some non-pension spending programs (such as income-tested welfare benefits), then you will want to exclude those spending programs when computing total transfers by year as the numerator in the `alpha_T` ratio.  Another strategy, to make sure you are fully capturing government outlays, is to compute one of the spending ratios as a residual.  For example, if you have data on government spending on public goods and transfers (again, after taking out what is accounted for in the modeling of pensions and taxes), you can compute the infrastructure spending ratio as a residual (= 1 - `alpha_G` - `alpha_T`).
+To calibrate these ratios, one can generally use national accounts data in combination with government budget reports.  The challenging piece to ensure that the definition of spending in the data and the model are aligned.  For example, if you are explicitly modeling the pension system and using the net tax functions to capture some non-pension spending programs (such as income-tested welfare benefits), then you will want to exclude those spending programs when computing total transfers by year as the numerator in the `alpha_T` ratio.  Another strategy, to make sure you are fully capturing government outlays, is to compute one of the spending ratios as a residual.  For example, if you have data on government spending on public goods and transfers (again, after taking out what is accounted for in the modeling of pensions and taxes), you can compute the infrastructure spending ratio as a residual (= 1 - `alpha_G` - `alpha_T`).
 
 The default way in which total transfers, $TR_t = alpha_{T,t} * GDP_{t}$ gets allocated to households is as a lump-sum, uniformly distributed transfer.  But you can adjust this distribution to match the true distribution of transfers across the population by adjusting the `eta` parameter. This is a three dimensional array that is `TxSxJ`. It sums to one in each model period and represents the fraction of transfers in that year distributed to each age (`S`) and lifetime income group (`J`). You can thus approximate the age and mean-tested transfers with this matrix, as well as policy changes that affect the distribution of transfers across the population over time.
 
