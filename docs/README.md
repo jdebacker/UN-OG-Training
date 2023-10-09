@@ -14,7 +14,7 @@ One image [`UN-OG-Training_logo_gitfig.png`](docs/UN-OG-Training_logo_gitfig.png
 6. Upload the image [`UN-OG-Training_logo_gitfig.png`](docs/UN-OG-Training_logo_gitfig.png) as the GitHub social preview image by clicking on the [**Settings**](https://github.com/OpenRG/UN-OG-Training/settings) button in the upper-right of the main page of the repository and uploading the formatted image [`UN-OG-Training_logo_gitfig.png`](docs/UN-OG-Training_logo_gitfig.png) in the **Social preview** section.
 
 
-## Other notes
+## URL for iframes versus text
 
 * For the iframes that show PDF files stored on Google Drive, the URL needs to be adjusted to say "preview" instead of "view". For example an iframe HTML code block referencing the following BYU ACME Lab might look like the following, where the URL in the `src` field is just copied from Google Drive. Note it has the "view" specification.
 ```html
@@ -39,3 +39,28 @@ This code will produce a "Google Drive Forbidden Error 403" in the rendered Jupy
 </div>
 ```
 For all other references to PDF files stored on Google Drive, we use the standard "view" format of the URL.
+
+
+## Need for text after footnotes sections
+
+Jupyter Book gives an error for markdown code that has footnotes immediately after a section heading specified as follows.
+```markdown
+(SecName)=
+## Footnotes
+
+[^footnote_name]: Generic footnote text.
+```
+The error we would get in the Jupyter book text looked like the following.
+```
+/Users/richardevans/Docs/Economics/OSE/UN-OG-Training/docs/book/python/NumPy.md:127: ERROR: Document or section may not begin with a transition.
+```
+
+The Jupyter book would compile fine. But we didn't love the error messages. The following addition of some text between the "Footnotes" section title and footnotes solved the problem.
+```markdown
+(SecName)=
+## Footnotes
+
+The footnotes from this chapter.
+
+[^footnote_name]: Generic footnote text.
+```
