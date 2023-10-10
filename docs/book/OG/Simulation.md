@@ -34,13 +34,13 @@ ogcore.execute.runner(p_reform)
 
 ```
 
-This above will simulate the model and save pickle files dictionaries of results to the `'./OUTPUT_REFORM'` directory on your computer.  The output of this run can then be compared to that in the `'./OUTPUT_BASELINE'` directory to see the effects of the reform on the economy.  `OG-Core` has some built in functions for creating tables and figures that are helpful in comparing these results.  We disucss those in the next chapter, {ref}`Chap_OGoutput`.
+This above will simulate the model and save pickle files dictionaries of results to the `'./OUTPUT_REFORM'` directory on your computer.  The output of this run can then be compared to that in the `'./OUTPUT_BASELINE'` directory to see the effects of the reform on the economy.  `OG-Core` has some built in functions for creating tables and figures that are helpful in comparing these results.  We discuss those in the next chapter, {ref}`Chap_OGoutput`.
 
 # Exercises:
 
 ```{exercise-start}
-:label: ExerSim
+:label: ExerSim_cit
 ```
-Some exercises where change parameters and run the model (just with SS)
+Using the above code blocks as an example, simulate the effects of a change in the corporate income tax rate (note the default in `OG-Core` is 21%). Just simulate the effects on the steady state (see the keyword arguments to the `runner` function).  Warning: `OG-Core` allows the corporate income tax rate to vary over time and across industries, so you will need to enter it as a list of lists (even if it's just a scalar that applies to all industries and time).
 ```{exercise-end}
 ```
