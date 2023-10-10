@@ -110,30 +110,30 @@ Also in the dictionary returned from `demographics.get_pop_objs`, is the populat
 Now that you've visualized the different demographic trends in the country you've chosen, let's see how these affect the equilibrium in the OG model.  This will combine what you learned in {ref}`Chap_OGsimulation` with what you've learned here about population demographics objects for the model. You'll proceed with the following steps:
 
 1. Instantiate a `Specifications` class object from `OG-Core` with:
-```python
-  p = Specifications(
-        baseline=True,
-        baseline_dir=base_dir,
-        output_base=base_dir,
-    )
-```
+   ```python
+     p = Specifications(
+           baseline=True,
+           baseline_dir=base_dir,
+           output_base=base_dir,
+       )
+   ```
 where you set the directory you'd like this output saved with a string `base_dir`.
-2. Use the `ogcore.execute.runner()` function to solve for the steady state of the model.
-3. Now, create a new Specifcations object with:
-```python
-  p2 = Specifications(
-        baseline=True,
-        baseline_dir=base_dir,
-        output_base=base_dir,
-    )
-```
+1. Use the `ogcore.execute.runner()` function to solve for the steady state of the model.
+2. Now, create a new Specifcations object with:
+   ```python
+     p2 = Specifications(
+           baseline=True,
+           baseline_dir=base_dir,
+           output_base=base_dir,
+       )
+   ```
 where you set the directory you'd like the output from this second model run saved with a string `reform_dir`.
-4. Use the demographics module you edited above to return the a dictoinary of population objects from `demographics.get_pop_objs`.  Use these to update the `p2` object:
+1. Use the demographics module you edited above to return the a dictoinary of population objects from `demographics.get_pop_objs`.  Use these to update the `p2` object:
 ```python
 p2.update_specifications(pop_obs_dict)
 ```
-5. Use `ogcore.execute.runner()` to solve the model again, this time with the parameters in `p2`.
-6. Finaly, comparet the differences in the steady-state macroeconomics variablkes using `ogcore.output_tables.macro_table_SS`.  What do you see?  How did demographics affect aggregate output?  Wages?  Interest rates?  Do you have intuition about why this happened?
+1. Use `ogcore.execute.runner()` to solve the model again, this time with the parameters in `p2`.
+2. Finaly, comparet the differences in the steady-state macroeconomics variablkes using `ogcore.output_tables.macro_table_SS`.  What do you see?  How did demographics affect aggregate output?  Wages?  Interest rates?  Do you have intuition about why this happened?
 ```{exercise-end}
 ```
 
@@ -184,6 +184,7 @@ To calibrate these ratios, one can generally use national accounts data in combi
 The default way in which total transfers, $TR_t = alpha_{T,t} * GDP_{t}$ gets allocated to households is as a lump-sum, uniformly distributed transfer.  But you can adjust this distribution to match the true distribution of transfers across the population by adjusting the `eta` parameter. This is a three dimensional array that is `TxSxJ`. It sums to one in each model period and represents the fraction of transfers in that year distributed to each age (`S`) and lifetime income group (`J`). You can thus approximate the age and mean-tested transfers with this matrix, as well as policy changes that affect the distribution of transfers across the population over time.
 
 As a final note, one will need to set the value for the initial infrastructure to GDP ratio, `initial_Kg_ratio`.  To find this, one needs an estimate of the stock of public infrastructure.  If no report exists reporting this an approximation would be to say that $K_g = \frac{I_g,t} / \delta_{g}$, where $I_{g,t}$ is the among of infrastructure spending (at present or averaged over recent years) and $\delta_g$ is the ratio of depreciation on this infrastructure (e.g., 2\% per annum).
+
 ### Government financing parameters
 
 Governments can run an unbalanced budget, but in order for an equilibrium to exist, deficits must be restricted such that they do not grow faster than GDP (if they did, interest payments on the debt would grow beyond available resources).  Governments therefore can borrow to finance outlays.  As there is no idiosyncratic risk on private capital in the model, we build in a risk premium by allowing the government to borrow at a rate lower than the private market.  If the rate the private market pays is given by `r`, then the government pays an interest rate of `r_gov = r_gov_scale * r - r_gov_shift`.  The `r_gov_scale` and `r_gov_shift` parameters are two that one would calibrate to the economy in question.  We advise doing this by looking at the historical haircut on private interest rates that the government has paid.  For example, if the government has paid an average interest rate of 1.5 percentage points below the private market, then `r_gov_scale` would be 1.0 and `r_gov_shift` would be 0.015.  One can do this in a systematic manner by finding time series data on government debt and corporate debt of the same maturity and estimating the two parameters directly.  For example, with these data you can estimate, via OLS, the following equation:
@@ -212,7 +213,6 @@ Now, use the [`datetime`](https://docs.python.org/3/library/datetime.html#dateti
 ```{exercise-end}
 ```
 
-
 ```{exercise-start}
 :label: ExerCalib-macro_gy
 ```
@@ -227,9 +227,9 @@ Now let's estimate the autocorrelation in GDP growth, assuming is a first order 
 
 First, create a new column in your data frame that is the lagged value of GDP growth.  Then, use the [`statsmodels.regression.linear_model.OLS`](https://www.statsmodels.org/dev/generated/statsmodels.regression.linear_model.OLS.html) function to estimate the following equation:
 
-```{math}
-y_{t} = \alpha  + \rho y_{t-1} + \varepsilon_{t}
-```
+   ```{math}
+   y_{t} = \alpha  + \rho y_{t-1} + \varepsilon_{t}
+   ```
 
 What did you estimate as $\alpha$?  What does this represent?  How persistent is the growth process in South Africa?
 
@@ -272,16 +272,14 @@ Use [`income.py` from `OG-USA`](https://github.com/PSLmodels/OG-USA/blob/master/
 ```
 Now we're going to adjust the above earnings process to match the Gini coefficient in a country that isn't the U.S. (note that the Gini coefficient for income in the U.S. was 41.5 in 2019). The transformation we'll make is:
 
-```{math}
-e_{C} = e_{USA} e^{a * e_{USA}}
-```
+   ```{math}
+   e_{C} = e_{USA} e^{a * e_{USA}}
+   ```
 
 where $C4 represents the country of interest. We will find $a$ by matching the Gini coefficient in the country of interest.  To do this, we'll use the `scipy.optimize` module.  First, create a function that takes $a$ as an argument and returns the Gini coefficient in the country of interest (hint: the [`ogusa.utils.Inequality`](https://github.com/PSLmodels/OG-Core/blob/9d7c814bafd210a581ffebf7df6f357aa5b2a048/ogcore/utils.py#L463) class object will be helpful here).  Then, use the `scipy.optimize.minimize_scalar` function to find the value of $a$ that minimizes the difference between the Gini coefficient in the country of interest and the Gini coefficient in the U.S.  Finally, use the value of $a$ you found to transform the `e` matrix from the U.S. to the country of interest.  Plot the earnings processes in the U.S. and the country of interest.  How do they differ?
 ```{exercise-end}
 ```
 
-```{exercise-end}
-```
 
 
 (SecOGCalibrationFootnotes)=
