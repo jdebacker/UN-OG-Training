@@ -26,4 +26,5 @@ dependencies:
   - linecheck
   - yaml-changelog
   - sphinx-exercise
+  - git+https://github.com/EAPD-DRB/OG-ZAF.git
   - sphinx-proof
