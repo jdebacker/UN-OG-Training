@@ -23,6 +23,11 @@ parts:
     - file: OG/Simulation
     - file: OG/Output
     - file: OG/Calibration
+      sections:
+      - file: OG/Demographics
+      - file: OG/MacroParams
+      - file: OG/FiscalParams
+      - file: OG/Earnings
   - caption: Appendix
     chapters:
     - file: appendix/glossary
