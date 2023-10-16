@@ -24,13 +24,13 @@ The iframe below contains a PDF of the BYU ACME open-access lab entitled, "[Unit
 (SecUnitTestCodecov)=
 ## Code coverage
 
-Put section here on code coverage.
+Ideally, one wants to make sure that all of their source code is tested, thereby ensuring it is producing expected results and reducing the potential that new contributions will introduce bugs.  But for any significant code base, it is difficult to know which lines of code are tested and which are.  To get an understanding of what is covered by unit tests, packages like [`coverage.py`](https://coverage.readthedocs.io/en/7.3.2/#) can be used to automatically generate a report of code coverage.  The report will show which lines of code are covered by unit tests and which are not.  This can be useful for identifying parts of the code that need more testing.
 
 
 (SecUnitTestGHActions)=
 ## Continuous integration testing and GitHub Actions
 
-Put section here on GitHub Actions and continuous integration.
+When using GitHub to collaborate with others on a code base, one can leverage the ability to use [GitHub Actions](https://github.com/features/actions) to automate unit testing and code coverage reports (as well as other checks on might want to run).  GitHub actions are specified in yaml files and triggered by some set event (e.g., a push, or a pull request, or a chronological schedule).  One of the most effective ways to ensure new contributions are not introducing bugs is to run unit tests and code coverage reports on every push to the repository.  This can be done by creating a GitHub action that runs the unit tests and code coverage report on every push to the repository.  [Codecov](https://about.codecov.io) provides some useful tools for reporting code coverage from unit tests in GitHub Actions.  You can see the actions `OG-Core` uses [here](https://github.com/PSLmodels/OG-Core/tree/master/.github/workflows).  These include unit tests and coverage reports, as well as checks that documentation builds and then is published upon a merge to the `master` branch.
 
 
 (SecUnitTestExercises)=
