@@ -48,7 +48,7 @@ Read the BYU ACME "[Unit Testing](https://drive.google.com/file/d/1109ci_tqZz30C
 :label: ExerTest-assert_value
 :class: green
 ```
-In Chapter {ref}`Chap_SciPy`, {numref}`exercise-start`, you wrote wrote a function, and called `SciPy.optimize` to minimize that function. This function had an analytical solution so you could check that SciPy obtained the correct constrained minimum. Now, write a `test_min` function in a module named `test_exercises.py`.  This function should end with an assert statement that the minimum value of the function is equal to the analytical solution.  Then, run the test using `pytest` and make sure it passes. Note, if your wrote the original function for {numref}`exercise-start` in a notebook, copy it over to a module can save it as `exercises.py`.
+In Chapter {ref}`Chap_SciPy`, {numref}`ExerScipy-root-lin`, you wrote wrote a function, and called `SciPy.optimize` to minimize that function. This function had an analytical solution so you could check that SciPy obtained the correct constrained minimum. Now, write a `test_min` function in a module named `test_exercises.py`.  This function should end with an assert statement that the minimum value of the function is equal to the analytical solution.  Then, run the test using `pytest` and make sure it passes. Note, if your wrote the original function for {numref}`ExerScipy-root-lin` in a notebook, copy it over to a module can save it as `exercises.py`.
 ```{exercise-end}
 ```
 
