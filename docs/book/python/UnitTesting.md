@@ -65,10 +65,10 @@ Write another test in your `test_exercises.py` module that uses an assert statem
 :class: green
 ```
 Write a simple function that returns the sum of two digits:
-```python
-def my_sum(a, b):
-  return a + b
-```
+  ```python
+  def my_sum(a, b):
+    return a + b
+  ```
 Save this in a module called `exercises.py`.  Now, use the `@pytest.mark.parametrize` decorator to test a function for multiple inputs of `a` and `b`.
 ```{exercise-end}
 ```
@@ -81,6 +81,3 @@ Use the `@pytest.mark` decorator to mark one of your tests in `test_exercises.py
 ```{exercise-end}
 ```
 
-```{exercise-start}
-```{exercise-end}
-```
