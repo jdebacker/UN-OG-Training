@@ -48,7 +48,7 @@ Read the BYU ACME "[Unit Testing](https://drive.google.com/file/d/1109ci_tqZz30C
 :label: ExerTest-assert_value
 :class: green
 ```
-Take simple function to minimize from SciPy and write a unit test for it (know analytic solutions so can test that SciPy is working correctly)
+In Chapter {ref}`Chap_SciPy`, {numref}`exercise-start`, you wrote wrote a function, and called `SciPy.optimize` to minimize that function. This function had an analytical solution so you could check that SciPy obtained the correct constrained minimum. Now, write a `test_min` function in a module named `test_exercises.py`.  This function should end with an assert statement that the minimum value of the function is equal to the analytical solution.  Then, run the test using `pytest` and make sure it passes. Note, if your wrote the original function for {numref}`exercise-start` in a notebook, copy it over to a module can save it as `exercises.py`.
 ```{exercise-end}
 ```
 
@@ -56,7 +56,7 @@ Take simple function to minimize from SciPy and write a unit test for it (know a
 :label: ExerTest-assert_type
 :class: green
 ```
-Another single test where assert that object a certain type
+Write another test in your `test_exercises.py` module that uses an assert statement to test that the type of the output of your `test_min` function is a NumPy `ndarray` object.  Then, run the test using `pytest` and make sure it passes.
 ```{exercise-end}
 ```
 
@@ -64,7 +64,12 @@ Another single test where assert that object a certain type
 :label: ExerTest-parameterize
 :class: green
 ```
-Use the `@pytest.mark.parametrize` decorator to test a function for multiple inputs
+Write a simple function that returns the sum of two digits:
+```python
+def my_sum(a, b):
+  return a + b
+```
+Save this in a module called `exercises.py`.  Now, use the `@pytest.mark.parametrize` decorator to test a function for multiple inputs of `a` and `b`.
 ```{exercise-end}
 ```
 
@@ -72,14 +77,10 @@ Use the `@pytest.mark.parametrize` decorator to test a function for multiple inp
 :label: ExerTest-markers
 :class: green
 ```
-Use pytest markers to skip a test
+Use the `@pytest.mark` decorator to mark one of your tests in `test_exercises.py`.  Then, your tests using `pytest` but in a way that skips tests with the marker you just gave.
 ```{exercise-end}
 ```
 
 ```{exercise-start}
-:label: ExerTest-???
-:class: green
-```
-Something else... Maybe a test that checks if an exception if raised?
 ```{exercise-end}
 ```
