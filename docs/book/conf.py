@@ -9,3 +9,6 @@ html_css_files = [
 
 # Get rid of transitions error/warning
 myst_footnote_transition = False
+
+# Number sphinx figures
+numfig = True
