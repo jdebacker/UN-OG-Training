@@ -124,8 +124,8 @@ path_dict = {
         "https://github.com/PSLmodels/OG-Core/blob/master/tests/test_io_data/TPI_vars_reform.pkl?raw=true"
             ],
     "Params": [
-        "https://github.com/PSLmodels/OG-Core/blob/master/tests/test_io_data/model_params_baseline.pkl?raw=true",
-        "https://github.com/PSLmodels/OG-Core/blob/master/tests/test_io_data/model_params_reform.pkl?raw=true"
+        "https://github.com/PSLmodels/OG-Core/blob/master/tests/test_io_data/model_params_baseline_v311.pkl?raw=true",
+        "https://github.com/PSLmodels/OG-Core/blob/master/tests/test_io_data/model_params_reform_v311.pkl?raw=true"
 
     ]
 }
@@ -167,12 +167,12 @@ import pickle
 import requests
 path_dict = {
     "TPI": [
-        "https://github.com/PSLmodels/OG-Core/blob/master/tests/test_io_data/TPI_vars_baseline.pkl?raw=true",
-        "https://github.com/PSLmodels/OG-Core/blob/master/tests/test_io_data/TPI_vars_reform.pkl?raw=true"
+        "https://github.com/PSLmodels/OG-Core/blob/master/tests/test_io_data/TPI_vars_baseline_v311.pkl?raw=true",
+        "https://github.com/PSLmodels/OG-Core/blob/master/tests/test_io_data/TPI_vars_reform_v311.pkl?raw=true"
             ],
     "Params": [
-        "https://github.com/PSLmodels/OG-Core/blob/master/tests/test_io_data/model_params_baseline.pkl?raw=true",
-        "https://github.com/PSLmodels/OG-Core/blob/master/tests/test_io_data/model_params_reform.pkl?raw=true"
+        "https://github.com/PSLmodels/OG-Core/blob/master/tests/test_io_data/model_params_baseline_v311.pkl?raw=true",
+        "https://github.com/PSLmodels/OG-Core/blob/master/tests/test_io_data/model_params_reform_v311.pkl?raw=true"
 
     ]
 }
