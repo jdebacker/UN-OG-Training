@@ -31,12 +31,12 @@ import numpy as np
 zeros_array = np.zeros(10)
 ```
 
-These types of comments are short and help to clarify what is to appear in the next few lines.  They help to remind others (or the future you) why you did something.  In this time of large language models, and [GitHub Copilot](https://github.com/features/copilot) they also provide valuable input for feed-forwrd models and make it much more likely the AI predicts your next line of code and writes it for you.
+These types of comments are short and help to clarify what is to appear in the next few lines.  They help to remind others (or the future you) why you did something.  In this time of large language models, and [GitHub Copilot](https://github.com/features/copilot) they also provide valuable input for feed-forward models and make it much more likely the AI predicts your next line of code and writes it for you.
 
 (SecDoc_docstrings)=
 ## Docstrings
 
-Docstrings are longer blocks of comments that are set aside to document the source code.  Docstrings are usually multi-line and are enclosed in triple quotes `"""..."""`.  Docstrings are most often used at the top of a module to document what it does and the functions it containts and just after function or class definitions to document what they do.  Docstrings can also be used to document variables and other objects.  Docstrings can be accessed by the `help()` function and are used by the `pydoc` module to automatically generate documentation for your code.
+Docstrings are longer blocks of comments that are set aside to document the source code.  Docstrings are usually multi-line and are enclosed in triple quotes `"""..."""`.  Docstrings are most often used at the top of a module to document what it does, and the functions it contains, and just after function or class definitions to document what they do.  Docstrings can also be used to document variables and other objects.  Docstrings can be accessed by the `help()` function and are used by the `pydoc` module to automatically generate documentation for your code.
 
 The following is an example of a docstring for a function:
 

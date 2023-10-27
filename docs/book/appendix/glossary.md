@@ -69,7 +69,7 @@ graphical user interface
   A graphical user interface or GUI...
 
 integrated development environment
-  Integrated development environment or IDE is a software application that comsolidates many of the functions of software development under one program. IDE's often include a code editor, object memory and identification, debugger, and build automation tools. (See [IDE Wikipedia entry](https://en.wikipedia.org/wiki/Integrated_development_environment) {cite}`GitIDE2020`.)
+  Integrated development environment or IDE is a software application that consolidates many of the functions of software development under one program. IDE's often include a code editor, object memory and identification, debugger, and build automation tools. (See [IDE Wikipedia entry](https://en.wikipedia.org/wiki/Integrated_development_environment) {cite}`GitIDE2020`.)
 
 Linux
   TODO: write Linux description...
@@ -90,7 +90,7 @@ open source
   *Open source* is a descriptor that is usually applied to software or computer code projects, but can also be applied to any project based upon or represented by digital files. An open source project is one in which the source code is freely available to be downloaded and used and in which collaboration, improvements, and changes to the code are encouraged. The free download and use (outward direction) aspect of *open source* is often emphasized. But the collaboration and improvement contribution (inward direction) aspect is at least as important. {term}`Git` and {term}`GitHub` have enabled efficient and scalable collaboration to a degree not seen in other collaborative workflows.
 
 pull request
-  TODO: define *pull request*...
+  *pull request*...
 
 remote
   *Remote* is a descriptor that refers to files that reside or operations that are carried out on a server to which a user has access using the internet.
