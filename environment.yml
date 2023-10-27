@@ -23,6 +23,7 @@ dependencies:
 - pip
 - pip:
   - ogcore
+  - ogusa
   - linecheck
   - yaml-changelog
   - sphinx-exercise

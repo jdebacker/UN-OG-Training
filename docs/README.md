@@ -9,7 +9,7 @@ One image [`UN-OG-Training_logo_gitfig.png`](docs/UN-OG-Training_logo_gitfig.png
 1. Open the image in Adobe Photoshop: **File** > **Open**
 2. Open the **Image Size** dialogue:
 3. Adjust the canvas size: **Image** > **Canvas Size**. Because the 500x346px image is taller than the optimal 1280x640px GitHub size, we first adjust the canvas size. We have to add some width. So here adjust the width to 692px [`346 * 2` or `346 * (1280 / 640)`] and keep the height at 346px.
-4. Adjust the image size: **Image** > **Image Size**. Now adjust the image size to the GitHub optimal 1280x640px. The dimesions will be correct and nothing will be stretched.
+4. Adjust the image size: **Image** > **Image Size**. Now adjust the image size to the GitHub optimal 1280x640px. The dimensions will be correct and nothing will be stretched.
 5. Save the image as [`UN-OG-Training_logo_gitfig.png`](docs/UN-OG-Training_logo_gitfig.png).
 6. Upload the image [`UN-OG-Training_logo_gitfig.png`](docs/UN-OG-Training_logo_gitfig.png) as the GitHub social preview image by clicking on the [**Settings**](https://github.com/OpenRG/UN-OG-Training/settings) button in the upper-right of the main page of the repository and uploading the formatted image [`UN-OG-Training_logo_gitfig.png`](docs/UN-OG-Training_logo_gitfig.png) in the **Social preview** section.
 
