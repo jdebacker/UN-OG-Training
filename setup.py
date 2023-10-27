@@ -7,7 +7,7 @@ with open("README.md", "r") as readme_file:
 
 setup(
     name="UN-OG-Training",
-    version="0.0.0",
+    version="0.0.1",
     author="Jason DeBacker and Richard W. Evans",
     author_email="rickecon@gmail.com",
     long_description=readme,
