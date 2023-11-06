@@ -2,6 +2,7 @@ format: jb-book
 root: index
 parts:
   - caption: Coding in Python
+    numbered: True
     chapters:
     - file: python/intro
     - file: python/StandardLibrary
@@ -14,9 +15,11 @@ parts:
     - file: python/DocStrings
     - file: python/UnitTesting
   - caption: Git and GitHub
+    numbered: True
     chapters:
     - file: git/intro
   - caption: OG Macro Model
+    numbered: True
     chapters:
     - file: OG/intro
     - file: OG/Install
