@@ -6,7 +6,6 @@ parts:
     chapters:
     - file: python/intro
     - file: python/StandardLibrary
-    - file: python/UN-OG-Training_AnswerTemplate.ipynb
     - file: python/ExceptionsIO
     - file: python/OOP
     - file: python/NumPy
@@ -36,6 +35,7 @@ parts:
     chapters:
     - file: appendix/glossary
     - file: appendix/intro
+    - file: python/UN-OG-Training_AnswerTemplate.ipynb
   - caption: References
     chapters:
     - file: UN-OG-Training_references
