@@ -5,8 +5,8 @@ parts:
     numbered: True
     chapters:
     - file: python/intro
-    - file: python/UN-OG-Training_AnswerTemplate.ipynb
     - file: python/StandardLibrary
+    - file: python/UN-OG-Training_AnswerTemplate.ipynb
     - file: python/ExceptionsIO
     - file: python/OOP
     - file: python/NumPy
