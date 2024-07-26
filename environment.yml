@@ -19,6 +19,7 @@ dependencies:
 - black
 - setuptools
 - pytest
+- pytest-cov
 - coverage
 - pip
 - pip:

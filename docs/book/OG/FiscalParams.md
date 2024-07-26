@@ -3,10 +3,10 @@
 
 Governments in the `OG-Core` model may raise revenue through the taxation of personal and corporate income,  payroll taxes, consumption taxes, taxes on bequests, and wealth taxes. These revenues, along with government borrowing, as you used to finance expenditures on transfers, government investment in infrastructure, spending on a public good, and interest payments on debt.  Here, we discuss the calibration of each of these parameters.
 
-## Tax rates
+<!-- ## Tax rates
 
 
-## Pension systems
+## Pension systems -->
 
 
 ## Spending parameters
