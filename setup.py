@@ -44,6 +44,7 @@ setup(
         "black",
         "setuptools",
         "pytest",
+        "pytest-cov",
         "coverage",
         "ogcore",
         "ogusa",
