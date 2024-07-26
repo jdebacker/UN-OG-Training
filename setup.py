@@ -51,7 +51,7 @@ setup(
         "linecheck",
         "yaml-changelog",
     ],
-    python_requires=">=3.10",
+    python_requires=">=3.7.7, <3.12",
     tests_require=["pytest"],
     packages=find_packages(),
 )
