@@ -3,7 +3,7 @@
 ####################################################
 title : UN OG-Core Overlapping Generations Model Training
 author : Jason DeBacker and Richard W. Evans
-copyright : '2023'
+copyright : '2024'
 logo : '..//UN-OG-Training_logo_long.png'
 
 ####################################################
@@ -70,7 +70,7 @@ launch_buttons:
 #######################################################################################
 # FiscalSim-US repository settings
 repository:
-  url: https://github.com/OpenRG/UN-OG-Training
+  url: https://github.com/EAPD-DRB/UN-OG-Training
   branch: main
   path_to_book: "docs/book"
 
